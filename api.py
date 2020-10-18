@@ -2,26 +2,39 @@ import flask
 import matplotlib.pyplot as plt
 plt.ioff()
 import numpy as np
-from flask import send_file, render_template, json, request
+from flask import send_file, render_template, request, json
 import os
 import mpld3
+from mpld3 import plugins
+import json
+
+
+def plot(start, end):
+  x = range(start, end)
+  y = range(start, end)
+  fig, ax = plt.subplots()
+  ax.plot(x, y)
+  fig.set_size_inches(2, 1.5)
+  return mpld3.fig_to_html(fig)
+
 
 PIC_FOLDER = os.path.join('static', 'some_photo')
 
 app = flask.Flask(__name__)
 app.config['UPLOAD_FOLDER'] = PIC_FOLDER
 
-def plot():
-    x = [1, 2, 3, 4]
-    y = [2, 4, 6, 8]
-    fig, ax = plt.subplots()
-    ax.plot(x, y)
-    return mpld3.fig_to_html(fig)
 
-@app.route('/query')
+@app.route('/')
+def index():
+  return render_template("index.html")
+
+@app.route('/query', methods = ['POST'])
 def query():
-  return plot()
-  
+  data = json.loads(request.data)
+  plt_html = plot(data["start"], data["end"])
+  # print(plt_html)
+  return plt_html
+
 """
 @app.route('/plot-test')
 def generate_graph():
@@ -35,10 +48,6 @@ def generate_graph():
   
   return render_template("plot-test.html", user_image=file_name)
 """
-
-@app.route('/')
-def index():
-  return "<h1>CAM2-COVID19 Backend</h1><p> Hello, World!</p>"
 
 if __name__ == '__main__':
   app.run(debug=True)
