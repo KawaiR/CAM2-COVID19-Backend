@@ -9,7 +9,7 @@ from mpld3 import plugins
 import json
 import random
 
-
+# This function generates the plot
 def plot(start, end):
   x = range(start, end)
   y = range(start, end)
@@ -20,16 +20,13 @@ def plot(start, end):
   return mpld3.fig_to_html(fig)
 
 
-PIC_FOLDER = os.path.join('static', 'some_photo')
-
 app = flask.Flask(__name__)
-app.config['UPLOAD_FOLDER'] = PIC_FOLDER
-
 
 @app.route('/')
 def index():
   return render_template("index.html")
 
+# This function get the POST request and return the plot in format of html
 @app.route('/query', methods = ['POST'])
 def query():
   # Get data from ajax request
