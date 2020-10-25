@@ -7,13 +7,15 @@ import os
 import mpld3
 from mpld3 import plugins
 import json
+import random
 
 
 def plot(start, end):
   x = range(start, end)
   y = range(start, end)
   fig, ax = plt.subplots()
-  ax.plot(x, y)
+  ax.scatter(x, y)
+  ax.set(title="Vehicle count from date " + str(start) + " to " + str(end))
   fig.set_size_inches(2, 1.5)
   return mpld3.fig_to_html(fig)
 
@@ -30,24 +32,11 @@ def index():
 
 @app.route('/query', methods = ['POST'])
 def query():
+  # Get data from ajax request
   data = json.loads(request.data)
-  plt_html = plot(data["start"], data["end"])
-  # print(plt_html)
+  plt_html = plot(int(data["start"]), int(data["end"]))
   return plt_html
 
-"""
-@app.route('/plot-test')
-def generate_graph():
-  arr = np.array([[2,2,5,5], [5,5,2,2], [4,4,3,3],[3,3,4,4]])
-  plt.pcolor(arr, cmap=plt.cm.BuPu)
-  plt.colorbar(orientation='vertical')
-  plt.axis('image')
-  plt.savefig('Graph.png')
-
-  file_name = os.path.join(app.config['UPLOAD_FOLDER'], 'Graph.png')
-  
-  return render_template("plot-test.html", user_image=file_name)
-"""
 
 if __name__ == '__main__':
   app.run(debug=True)
