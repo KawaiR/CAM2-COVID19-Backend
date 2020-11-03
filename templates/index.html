@@ -49,6 +49,7 @@
         </div>
         </nav>
     </header>
+    
     <body id="page-top" style="margin-top:-100px;">
         <section class="projects-section bg-light" id="members">
             <div class="container">
@@ -59,22 +60,14 @@
                 <!--This p includes all the display of generating a plot-->
                 <p>
                     <!--Slide bar value display-->
-                    <label for="amount">Vehicle Count from </label>
-                    <input type="text" id="amount1" style="border:0; color:#f6931f; font-weight:bold;" size = "2">
-                    to
-                    <input type="text" id="amount2" style="border:0; color:#f6931f; font-weight:bold;" size = "2"> 
                     <!--Select country-->
-                    <div>
-                        <select id="country">
-                          <option value="usa">USA</option>
-                          <option value="france">France</option>
-                          <option value="italy">Italy</option>
-                        </select>
-                    </div>
+                    <label for="country">Country: </label>
+                    <input type="text" id="country" name="country" value="Germany">
+                    <label for="start">Start Date:</label>
+                    <input type="date" id="start" name="start" value="2020-05-01" min={{ min_date }} max={{ max_date }}>
+                    <label for="end">End Date:</label>
+                    <input type="date" id="end" name="end" value="2020-07-01" min={{ min_date }} max={{ max_date }}>
                 
-                    <br>
-                    <!--Slide bar-->
-                    <div id="slider-range"></div>
                     <br>
                     <!--View plot button-->
                     <button type="button" id="query" style="background-color: #555555;
@@ -85,12 +78,12 @@
                         display: inline-block;
                         font-size: 16px;
                         margin: auto;
-                        top: 0; left: 0; right: 0; bottom: 0;
+                        left: 50%;
                         cursor: pointer;">View Plot</button>
                     <!--Display when loading the plot-->
                     <div id="loading-div-background">
                         <div id="loading-div" class="ui-corner-all" >
-                        <h3 style="color:gray;font-weight:normal;">Loading....</h3>
+                        <h3 style="color:gray;font-weight:normal;">Loading plot.... May take 30 seconds</h3>
                         </div>
                     </div>
                   <!--Container for the plot-->
@@ -138,9 +131,10 @@
                 $("#loading-div-background").show();
                 $("#container").hide();
                 /* Get value of slide bar */
-                var start = document.getElementById("amount1").value
-                var end = document.getElementById("amount2").value
-                var qu = {"start":start, "end":end};
+                var country = document.getElementById("country").value;
+                var start = document.getElementById("start").value;
+                var end = document.getElementById("end").value;
+                var qu = {"country":country, "start":start, "end":end};
                 /* ajax request: send range value and receive the plot*/
                 $.ajax({
                 type: "POST",
