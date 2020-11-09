@@ -59,9 +59,16 @@ def generate_plot(country=None, state=None, date1=None, date2=None, date3=None, 
     colap = pd.read_csv('processed_vehicles.csv')
     data = pd.read_csv(cars)
     data = data.fillna(0)
+    # select range of date
+    data = data.loc[(data['date'] >= date1) & (data['date'] <= date2)]
 
     # remove the data of March 31
     useful_data = colap[1:]
+    # select range of date
+    useful_data['date_keys'] = '2020-' + useful_data['date_keys'].astype(str)
+    useful_data['date_keys'] = pd.to_datetime(useful_data['date_keys'])
+    useful_data = useful_data.loc[(useful_data['date_keys'] >= date1) & (useful_data['date_keys'] <= date2)]
+    print(useful_data.head())
     data_points = len(useful_data)
 
     start_samples = []
@@ -96,9 +103,15 @@ def generate_plot(country=None, state=None, date1=None, date2=None, date3=None, 
     colap = pd.read_csv('processed_people.csv')
     data = pd.read_csv(people)
     data = data.fillna(0)
+    # select range of date
+    data = data.loc[(data['date'] >= date1) & (data['date'] <= date2)]
 
     # remove the data of March 31
     useful_data = colap[1:]
+    # select range of date
+    useful_data['date_keys'] = '2020-' + useful_data['date_keys'].astype(str)
+    useful_data['date_keys'] = pd.to_datetime(useful_data['date_keys'])
+    useful_data = useful_data.loc[(useful_data['date_keys'] >= date1) & (useful_data['date_keys'] <= date2)]
     data_points = len(useful_data)
 
     start_samples = []
@@ -128,37 +141,16 @@ def generate_plot(country=None, state=None, date1=None, date2=None, date3=None, 
 
     ax.set(title=place_to_use)
 
-    colors, markers=color_list(plot_dates[1:-1], date1=date1, date2=date2, date3=date3, date4=date4)
+    # colors, markers=color_list(plot_dates[1:-1], date1=date1, date2=date2, date3=date3, date4=date4)
 
     for i in range(len(daily_counts)):
-        ax.scatter(daily_counts[i], daily_counts_people[:-2][i], color=colors[i], marker=markers[i], s=3)
+        ax.scatter(daily_counts[i], daily_counts_people[i], color= "b", marker= "o", s=3)
+
+
     ax.set_xlabel('Vehicle count')
     ax.set_ylabel('People count')
 
 
-    legend_elements = [Line2D([0], [0], marker='o', color='w', label='Scatter',
-                          markerfacecolor='r', markersize=9),
-                        Line2D([0], [0], marker='o', color='w', label='Scatter',
-                          markerfacecolor='g', markersize=9),
-                        Line2D([0], [0], marker='o', color='w', label='Scatter',
-                          markerfacecolor='b', markersize=9),
-                        Line2D([0], [0], marker='o', color='w', label='Scatter',
-                          markerfacecolor='black', markersize=9),
-                        Line2D([0], [0], marker='o', color='w', label='Scatter',
-                          markerfacecolor='darkorchid', markersize=9),
-                        ]
-
-    dates = [date1, date2, date3, date4]
-    legend = []
-    prevdate = '04-01 ' 
-    for each in dates:
-        if each!=None:
-            legend+=[str(prevdate + '-- ' + each)]
-            prevdate=each
-
-    legend+=[str(prevdate + '-- ' + '08-01 ')]
-
-    ax.legend(legend_elements, legend, loc=2, prop={'size': 10})
     plt.title(place_to_use)
     plt.xlabel('Vehicle count')
     plt.ylabel('People count')

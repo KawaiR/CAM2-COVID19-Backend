@@ -9,19 +9,21 @@ from mpld3 import plugins
 import json
 import random
 import scatterplots
+from datetime import date
+
 
 # This function generates the plot
 def plot(place, start, end):
-  print(place)
-  return scatterplots.generate_plot(country=place, date1=start[5:]+" ", date2=end[5:]+" ")
+  return scatterplots.generate_plot(country=place, date1=start, date2=end)
 
 
 app = flask.Flask(__name__)
 
 @app.route('/')
 def index():
+  today = date.today()
+  max_date = today.strftime("%Y-%m-%d")
   min_date = "2020-04-01"
-  max_date = "2020-10-25"
   return render_template("index.html", min_date=min_date, max_date=max_date)
 
 # This function get the POST request and return the plot in format of html
