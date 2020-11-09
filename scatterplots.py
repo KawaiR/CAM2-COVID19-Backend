@@ -154,7 +154,7 @@ def generate_plot(country=None, state=None, date1=None, date2=None, date3=None, 
     plt.title(place_to_use)
     plt.xlabel('Vehicle count')
     plt.ylabel('People count')
-    fig.set_size_inches(2, 1.5)
+    fig.set_size_inches(5, 5)
     return mpld3.fig_to_html(fig)
 
 
