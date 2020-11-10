@@ -1,0 +1,2254 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>CAM² COVID-19</title>
+        <link rel="icon" type="image/x-icon" href="favicon.ico"/>
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v5.13.0/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Muli:400,400i,600,800,800i" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;1,100;1,200;1,500;1,600&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdn.rawgit.com/konpa/devicon/df6431e323547add1b4cf45992913f15286456d3/devicon.min.css">
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="{{ url_for('static', filename='css/styles.css') }}"  type="text/css" rel="stylesheet" />
+        <link href="{{ url_for('static', filename='css/test.css') }}"  type="text/css" rel="stylesheet">
+        <link href="{{ url_for('static', filename='css/resume.css') }}"  type="text/css"  rel="stylesheet">
+        <link href="{{ url_for('static', filename='css/hamburgers.css') }}"  type="text/css"  rel="stylesheet">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/owl.carousel.min.css') }}"  type="text/css" />
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/owl.theme.default.min.css') }}"  type="text/css" />
+    </head>
+    <header id="stickyheaders">
+        <!-- Navigation -->
+        <nav class="navbar navbar-expand-md navbar-dark fixed-top navbar-custom shadow-sm" style="transition: top 0.3s; padding-top: 0px !important; padding-bottom: 0px !important;" id="mainNav">
+        <div class="container">
+            <a href="https://covid19.purduehelps.org/" class="navbar-brand js-scroll-trigger navbar-image">
+            <img style="width: 65px; height: 39px;" src="{{url_for('static', filename='img/Cam_2.png')}}">
+            </a>
+            <button class="hamburger hamburger--spin navbar-toggler navbar-mobile-element" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"  type="button" style="margin-top: 5px !important;">
+            <span class="hamburger-box">
+                <span class="hamburger-inner"></span>
+            </span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <div class="navbar-nav ml-auto">
+                    <li class="nav-item"> <a href="https://covid19.purduehelps.org/" class="nav-item nav-link" style="font-family: 'Exo 2', sans-serif; font-size: 20px; font-weight: 100; text-decoration: none !important; ">Home</a> </li>
+                    <li class="nav-item"> <a href="https://covid19.purduehelps.org/timeline/" class="nav-item nav-link" style="font-family: 'Exo 2', sans-serif; font-size: 20px; font-weight: 100; text-decoration: none !important;">Timeline</a> </li>
+                    <li class="nav-item active"> <a href="https://covid19.purduehelps.org/research/" class="nav-item nav-link active" style="font-family: 'Exo 2', sans-serif; font-size: 20px; font-weight: 100;  text-decoration: none !important;">Research<span class="sr-only">(current)</span></a> </li>
+                    <li class="nav-item"> <a href="https://covid19.purduehelps.org/analysis/" class="nav-item nav-link" style="font-family: 'Exo 2', sans-serif; font-size: 20px; font-weight: 100;  text-decoration: none !important; ">Analysis</a> </li>
+                    <li class="nav-item"> <a href="https://covid19.purduehelps.org/members/" class="nav-item nav-link" style="font-family: 'Exo 2', sans-serif; font-size: 20px; font-weight: 100;  text-decoration: none !important; ">Members</a> </li>
+                    <li class="nav-item"> <a href="https://www.cam2project.net/" class="nav-item nav-link" style="font-family: 'Exo 2', sans-serif; font-size: 20px; font-weight: 100;  text-decoration: none !important; " target="_blank">CAM²</a> </li>
+                    <!--Hwy-->
+                </div>
+            </div>
+        </div>
+        </nav>
+    </header>
+    <body id="page-top" style="margin-top:-100px;">
+        <!-- Team Members-->
+        <section class="projects-section bg-light" id=members">
+            <div class="container">
+                <h3 class="mb-0" style="font-family: 'Exo 2', sans-serif; color: #1B1B1B; font-weight: 400;">Sample Data</h3>
+                <br>
+                <p class="text-black-50 mb-5" style="margin-top: -10px;">From over 30,000 public network cameras, our research team developed a database of static pictures and videos in order to perform visual analysis of the quality of social distancing in various parts of the world, amidst the COVID-19 pandemic. Below is a sample of the camera data that show a 31-day-timelapse from 4/1/2020 to 5/1/2020 of the effect of social distancing in various cities. To access the camera database, click <a href="http://vision.cs.luc.edu/~cv/images/" target="_blank">here</a>.</p>
+                <div class="col-lg-9 mx-auto" style="margin-bottom: 150px;">
+                    <!-- Accordion -->
+                    <ul class="filterSection" style=" margin-left: -50px !important">
+                        <li>
+                            <strong style="margin-right: -30px;">Show:</strong>
+                            <input checked="true" type="checkbox" value="city"/>
+                            <label style="margin-left: -35px; margin-right: -40px;">city</label>
+                        </li>
+                        <li>
+                            <input checked="true" type="checkbox" value="beach"/>
+                            <label style="margin-left: -35px;">beach</label>
+                        </li>
+                    </ul>
+                    <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for places..">
+                    <div id="accordionExample" class="accordion bg-light shadow">
+                        <!-- Accordion item 1 -->
+                        <li data-type = "city" style="list-style: none;">
+                            <a style="display: none !important;">New York City, New York - 1</a>
+                            <div class="card">
+                                <div id="headingOne" class="card-header bg-white shadow-sm border-0">
+                                    <h6 class="mb-0 font-weight-bold"><a href="#" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne" class="d-block position-relative text-dark text-uppercase collapsible-link py-2" style="font-weight: 400;">New York City, New York - 1</a></h6>
+                                </div>
+                                <div id="collapseOne" aria-labelledby="headingOne" class="collapse">
+                                    <div class="card-body p-3">
+                                        <!-- BODY -->
+                                        <div class="owl-carousel owl-theme">
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="0">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/0369289ba3/2020-03-29%2013:03%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="1">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/0369289ba3/2020-03-30%2013:02%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="2">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/0369289ba3/2020-03-31%2013:04%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="3">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/0369289ba3/2020-04-02%2007:02%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="4">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/0369289ba3/2020-04-03%2019:02%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="5">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/0369289ba3/2020-04-04%2019:39%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="6">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/0369289ba3/2020-04-05%2011:43%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="7">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/0369289ba3/2020-04-05%2019:10%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="8">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/0369289ba3/2020-04-06%2015:03%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="9">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/0369289ba3/2020-04-06%2019:58%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="10">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/0369289ba3/2020-04-07%2015:50%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="11">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/0369289ba3/2020-04-08%2019:02%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="12">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/0369289ba3/2020-04-09%2015:44%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="13">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/0369289ba3/2020-04-09%2019:02%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="14">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/0369289ba3/2020-04-11%2014:06%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="15">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/0369289ba3/2020-04-12%2015:03%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="16">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/0369289ba3/2020-04-16%2022:03%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="17">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/0369289ba3/2020-04-17%2003:02%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="18">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/0369289ba3/2020-04-17%2013:29%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="19">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/0369289ba3/2020-04-17%2018:02%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="20">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/0369289ba3/2020-04-18%2012:03%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="21">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/0369289ba3/2020-04-18%2019:18%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="22">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/0369289ba3/2020-04-19%2016:08%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="23">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/0369289ba3/2020-04-20%2016:11%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="24">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/0369289ba3/2020-04-20%2018:18%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="25">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/0369289ba3/2020-04-21%2019:00%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="26">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/0369289ba3/2020-04-22%2018:10%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="27">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/0369289ba3/2020-05-15%2021:01%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="28">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/0369289ba3/2020-05-16%2017:02%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="29">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/0369289ba3/2020-05-20%2015:36%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="30">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/0369289ba3/2020-06-02%2017:51%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="range-slider" style="text-align: center; margin-top: 20px;">
+                                            <input class="range-slider__range r1" oninput="togglerange(this)" type="range" value="0" min="0" max="30" style="width: 40% !important;">
+                                            <span class="range-slider__value r1 s-three">4/01 - 4/03</span>
+                                            <span class="range-slider__value r1 s-two">4/01 - 4/02</span>
+                                            <span class="range-slider__value r1 s-one">4/01</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li data-type = "city" style="list-style: none;">
+                            <a style="display: none !important;">New York City, New York - 2</a>
+                            <div class="card">
+                                <div id="headingTwo" class="card-header bg-white shadow-sm border-0">
+                                    <h6 class="mb-0 font-weight-bold"><a href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo" class="d-block position-relative collapsed text-dark text-uppercase collapsible-link py-2" style="font-weight: 400;">New York City, New York - 2</a></h6>
+                                </div>
+                                <div id="collapseTwo" aria-labelledby="headingTwo" class="collapse">
+                                    <div class="card-body p-3">
+                                        <!-- BODY -->
+                                        <div class="owl-carousel owl-theme">
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="0">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/113644aeaa/2020-03-29%2013:47%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="1">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/113644aeaa/2020-03-29%2010:39%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="2">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/113644aeaa/2020-03-30%2007:05%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="3">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/113644aeaa/2020-03-30%2013:04%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="4">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/113644aeaa/2020-03-31%2013:05%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="5">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/113644aeaa/2020-04-01%2019:05%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="6">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/113644aeaa/2020-04-03%2001:04%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="7">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/113644aeaa/2020-04-04%2019:41%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="8">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/113644aeaa/2020-04-05%2007:19%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="9">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/113644aeaa/2020-04-06%2015:05%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="10">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/113644aeaa/2020-04-07%2020:30%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="11">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/113644aeaa/2020-04-12%2010:04%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="12">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/113644aeaa/2020-04-12%2015:05%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="13">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/113644aeaa/2020-04-15%2018:44%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="14">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/113644aeaa/2020-04-17%2018:20%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="15">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/113644aeaa/2020-04-18%2017:05%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="16">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/113644aeaa/2020-04-19%2020:20%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="17">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/113644aeaa/2020-04-21%2013:09%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="18">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/113644aeaa/2020-05-12%2003:56%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="19">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/113644aeaa/2020-05-17%2016:57%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="20">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/113644aeaa/2020-05-19%2017:35%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="21">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/113644aeaa/2020-05-19%2017:37%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="22">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/113644aeaa/2020-05-20%2018:03%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="23">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/113644aeaa/2020-05-21%2011:04%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="24">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/113644aeaa/2020-05-29%2003:31%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="25">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/113644aeaa/2020-05-30%2017:48%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="26">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/113644aeaa/2020-05-31%2016:01%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="27">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/113644aeaa/2020-06-07%2001:36%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="28">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/113644aeaa/2020-06-08%2016:17%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="29">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/113644aeaa/2020-06-10%2013:52%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="30">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/113644aeaa/2020-06-10%2018:47%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="range-slider" style="text-align: center; margin-top: 20px;">
+                                            <input class="range-slider__range r2" oninput="togglerange(this)" type="range" value="0" min="0" max="30" style="width: 40% !important;">
+                                            <span class="range-slider__value r2 s-three">4/01 - 4/03</span>
+                                            <span class="range-slider__value r2 s-two">4/01 - 4/02</span>
+                                            <span class="range-slider__value r2 s-one">4/01</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li data-type = "beach" style="list-style: none;">
+                            <a style="display: none !important;">Gatlinburg, Tennessee</a>
+                            <div class="card" >
+                                <div id="headingThree" class="card-header bg-white shadow-sm border-0">
+                                    <h6 class="mb-0 font-weight-bold"><a href="#" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree" class="d-block position-relative collapsed text-dark text-uppercase collapsible-link py-2" style="font-weight: 400;">Gatlinburg, Tennessee</a></h6>
+                                </div>
+                                <div id="collapseThree" aria-labelledby="headingThree" class="collapse">
+                                    <div class="card-body p-3" >
+                                        <!-- BODY -->
+                                        <div class="owl-carousel owl-theme">
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="0">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/1yY7h9xkXt/2020-04-05%2003:17%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="1">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/1yY7h9xkXt/2020-04-05%2011:58%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="2">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/1yY7h9xkXt/2020-04-05%2015:19%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="3">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/1yY7h9xkXt/2020-04-05%2019:17%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="4">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/1yY7h9xkXt/2020-04-05%2023:17%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="5">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/1yY7h9xkXt/2020-04-06%2003:17%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="6">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/1yY7h9xkXt/2020-04-06%2011:16%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="7">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/1yY7h9xkXt/2020-04-06%2015:17%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="8">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/1yY7h9xkXt/2020-03-28%2013:15%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="9">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/1yY7h9xkXt/2020-03-29%2010:53%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="10">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/1yY7h9xkXt/2020-03-29%2014:03%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="11">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/1yY7h9xkXt/2020-03-29%2019:19%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="12">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/1yY7h9xkXt/2020-03-30%2001:18%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="13">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/1yY7h9xkXt/2020-03-30%2013:19%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="14">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/1yY7h9xkXt/2020-03-30%2019:19%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="15">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/1yY7h9xkXt/2020-03-31%2001:19%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="16">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/1yY7h9xkXt/2020-03-31%2013:19%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="17">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/1yY7h9xkXt/2020-03-31%2019:30%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="18">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/1yY7h9xkXt/2020-04-01%2002:02%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="19">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/1yY7h9xkXt/2020-04-01%2007:20%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="20">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/1yY7h9xkXt/2020-04-01%2019:19%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="21">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/1yY7h9xkXt/2020-04-02%2001:18%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="22">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/1yY7h9xkXt/2020-04-02%2013:19%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="23">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/1yY7h9xkXt/2020-04-02%2020:48%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="24">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/1yY7h9xkXt/2020-04-03%2001:18%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="25">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/1yY7h9xkXt/2020-04-03%2013:19%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="26">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/1yY7h9xkXt/2020-04-04%2001:17%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="27">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/1yY7h9xkXt/2020-04-04%2007:35%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="28">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/1yY7h9xkXt/2020-04-04%2013:17%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="29">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/1yY7h9xkXt/2020-04-04%2019:54%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="30">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/1yY7h9xkXt/2020-04-04%2023:17%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="range-slider" style="text-align: center; margin-top: 20px;">
+                                            <input class="range-slider__range r3" oninput="togglerange(this)" type="range" value="0" min="0" max="30" style="width: 40% !important;">
+                                            <span class="range-slider__value r3 s-three">4/01 - 4/03</span>
+                                            <span class="range-slider__value r3 s-two">4/01 - 4/02</span>
+                                            <span class="range-slider__value r3 s-one">4/01</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li data-type = "beach" style="list-style: none;">
+                            <a style="display: none !important;">Egmond, Netherlands</a>
+                            <div class="card" >
+                                <div id="headingFour" class="card-header bg-white shadow-sm border-0">
+                                    <h6 class="mb-0 font-weight-bold"><a href="#" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour" class="d-block position-relative collapsed text-dark text-uppercase collapsible-link py-2" style="font-weight: 400;">Egmond, Netherlands</a></h6>
+                                </div>
+                                <div id="collapseFour" aria-labelledby="headingFour" class="collapse">
+                                    <div class="card-body p-3" >
+                                        <!-- BODY -->
+                                        <div class="owl-carousel owl-theme">
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="0">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/4mKEIb96LV/2020-03-29%2013:15%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="1">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/4mKEIb96LV/2020-03-30%2001:13%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="2">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/4mKEIb96LV/2020-03-31%2001:13%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="3">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/4mKEIb96LV/2020-04-01%2007:13%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="4">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/4mKEIb96LV/2020-04-02%2001:12%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="5">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/4mKEIb96LV/2020-04-03%2001:13%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="6">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/4mKEIb96LV/2020-04-04%2007:12%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="7">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/4mKEIb96LV/2020-04-05%2007:11%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="8">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/4mKEIb96LV/2020-04-06%2003:26%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="9">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/4mKEIb96LV/2020-04-07%2003:12%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="10">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/4mKEIb96LV/2020-04-08%2011:12%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="11">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/4mKEIb96LV/2020-04-09%2003:12%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="12">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/4mKEIb96LV/2020-04-10%2007:13%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="13">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/4mKEIb96LV/2020-04-11%2008:43%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="14">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/4mKEIb96LV/2020-04-12%2015:12%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="15">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/4mKEIb96LV/2020-04-13%2011:55%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="16">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/4mKEIb96LV/2020-04-14%2008:06%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="17">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/4mKEIb96LV/2020-04-15%2014:04%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="18">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/4mKEIb96LV/2020-04-16%2022:27%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="19">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/4mKEIb96LV/2020-04-17%2013:28%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="20">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/4mKEIb96LV/2020-04-18%2007:12%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="21">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/4mKEIb96LV/2020-04-19%2000:11%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="22">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/4mKEIb96LV/2020-04-20%2001:11%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="23">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/4mKEIb96LV/2020-04-21%2022:16%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="24">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/4mKEIb96LV/2020-04-22%2008:34%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="25">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/4mKEIb96LV/2020-04-23%2009:08%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="26">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/4mKEIb96LV/2020-04-24%2003:28%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="27">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/4mKEIb96LV/2020-05-12%2012:57%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="28">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/4mKEIb96LV/2020-05-13%2010:47%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="29">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/4mKEIb96LV/2020-05-14%2009:42%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="30">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/4mKEIb96LV/2020-05-15%2008:48%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="range-slider" style="text-align: center; margin-top: 20px;">
+                                            <input class="range-slider__range r4" oninput="togglerange(this)" type="range" value="0" min="0" max="30" style="width: 40% !important;">
+                                            <span class="range-slider__value r4 s-three">4/01 - 4/03</span>
+                                            <span class="range-slider__value r4 s-two">4/01 - 4/02</span>
+                                            <span class="range-slider__value r4 s-one">4/01</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li data-type = "beach" style="list-style: none;">
+                            <a style="display: none !important;">Salisbury, Massachusetts</a>
+                            <div class="card" >
+                                <div id="headingFive" class="card-header bg-white shadow-sm border-0">
+                                    <h6 class="mb-0 font-weight-bold"><a href="#" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive" class="d-block position-relative collapsed text-dark text-uppercase collapsible-link py-2" style="font-weight: 400;">Salisbury, Massachusetts</a></h6>
+                                </div>
+                                <div id="collapseFive" aria-labelledby="headingFive" class="collapse">
+                                    <div class="card-body p-3" >
+                                        <!-- BODY -->
+                                        <div class="owl-carousel owl-theme">
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="0">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/OVZjQQIIYf/2020-03-29%2010:44%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="1">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/OVZjQQIIYf/2020-03-30%2007:09%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="2">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/OVZjQQIIYf/2020-03-31%2013:10%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="3">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/OVZjQQIIYf/2020-04-01%2019:10%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="4">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/OVZjQQIIYf/2020-04-02%2007:10%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="5">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/OVZjQQIIYf/2020-04-03%2019:10%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="6">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/OVZjQQIIYf/2020-04-04%2019:46%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="7">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/OVZjQQIIYf/2020-04-06%2007:11%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="8">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/OVZjQQIIYf/2020-04-07%2011:10%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="9">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/OVZjQQIIYf/2020-04-08%2023:10%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="10">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/OVZjQQIIYf/2020-04-09%2015:10%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="11">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/OVZjQQIIYf/2020-04-10%2009:40%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="12">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/OVZjQQIIYf/2020-04-12%2015:10%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="13">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/OVZjQQIIYf/2020-04-13%2011:52%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="14">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/OVZjQQIIYf/2020-04-15%2014:02%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="15">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/OVZjQQIIYf/2020-04-16%2014:37%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="16">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/OVZjQQIIYf/2020-04-17%2008:10%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="17">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/OVZjQQIIYf/2020-04-18%2007:09%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="18">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/OVZjQQIIYf/2020-04-19%2005:37%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="19">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/OVZjQQIIYf/2020-04-20%2006:09%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="20">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/OVZjQQIIYf/2020-04-21%2017:39%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="21">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/OVZjQQIIYf/2020-04-21%2018:58%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="22">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/OVZjQQIIYf/2020-05-13%2010:56%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="23">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/OVZjQQIIYf/2020-05-15%2018:06%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="24">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/OVZjQQIIYf/2020-05-16%2017:26%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="25">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/OVZjQQIIYf/2020-05-17%2017:12%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="26">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/OVZjQQIIYf/2020-05-19%2000:41%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="27">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/OVZjQQIIYf/2020-05-20%2008:29%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="28">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/OVZjQQIIYf/2020-05-28%2005:24%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="29">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/OVZjQQIIYf/2020-05-28%2005:50%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="30">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/OVZjQQIIYf/2020-04-18%2017:10%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="range-slider" style="text-align: center; margin-top: 20px;">
+                                            <input class="range-slider__range r5" oninput="togglerange(this)" type="range" value="0" min="0" max="30" style="width: 40% !important;">
+                                            <span class="range-slider__value r5 s-three">4/01 - 4/03</span>
+                                            <span class="range-slider__value r5 s-two">4/01 - 4/02</span>
+                                            <span class="range-slider__value r5 s-one">4/01</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li data-type = "city" style="list-style: none;">
+                            <a style="display: none !important;">Umbria, Italy</a>
+                            <div class="card" >
+                                <div id="headingSix" class="card-header bg-white shadow-sm border-0">
+                                    <h6 class="mb-0 font-weight-bold"><a href="#" data-toggle="collapse" data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix" class="d-block position-relative collapsed text-dark text-uppercase collapsible-link py-2" style="font-weight: 400;">Umbria, Italy</a></h6>
+                                </div>
+                                <div id="collapseSix" aria-labelledby="headingSix" class="collapse">
+                                    <div class="card-body p-3" >
+                                        <!-- BODY -->
+                                        <div class="owl-carousel owl-theme">
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="0">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/h092zALqYg/2020-03-26%2019:11%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="1">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/h092zALqYg/2020-03-27%2019:15%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="2">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/h092zALqYg/2020-03-28%2007:17%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="3">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/h092zALqYg/2020-03-29%2010:47%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="4">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/h092zALqYg/2020-03-30%2013:11%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="5">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/h092zALqYg/2020-03-31%2013:10%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="6">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/h092zALqYg/2020-04-01%2001:12%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="7">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/h092zALqYg/2020-04-02%2007:11%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="8">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/h092zALqYg/2020-04-03%2013:11%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="9">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/h092zALqYg/2020-04-04%2001:10%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="10">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/h092zALqYg/2020-04-05%2011:51%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="11">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/h092zALqYg/2020-04-06%2007:11%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="12">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/h092zALqYg/2020-04-07%2011:11%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="13">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/h092zALqYg/2020-04-08%2023:50%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="14">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/h092zALqYg/2020-04-09%2007:12%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="15">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/h092zALqYg/2020-04-10%2009:41%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="16">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/h092zALqYg/2020-04-11%2012:37%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="17">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/h092zALqYg/2020-04-12%2010:11%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="18">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/h092zALqYg/2020-04-13%2011:52%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="19">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/h092zALqYg/2020-04-14%2007:10%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="20">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/h092zALqYg/2020-04-15%2008:11%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="21">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/h092zALqYg/2020-04-16%2009:28%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="22">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/h092zALqYg/2020-04-17%2013:10%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="23">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/h092zALqYg/2020-04-18%2012:10%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="24">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/h092zALqYg/2020-04-19%2010:10%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="25">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/h092zALqYg/2020-04-20%2011:11%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="26">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/h092zALqYg/2020-04-21%2007:40%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="27">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/h092zALqYg/2020-04-23%2009:21%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="28">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/h092zALqYg/2020-04-24%2008:29%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="29">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/h092zALqYg/2020-05-12%2023:50%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="30">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/h092zALqYg/2020-05-18%2001:17%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="range-slider" style="text-align: center; margin-top: 20px;">
+                                            <input class="range-slider__range r6" oninput="togglerange(this)" type="range" value="0" min="0" max="30" style="width: 40% !important;">
+                                            <span class="range-slider__value r6 s-three">4/01 - 4/03</span>
+                                            <span class="range-slider__value r6 s-two">4/01 - 4/02</span>
+                                            <span class="range-slider__value r6 s-one">4/01</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li data-type = "city" style="list-style: none;">
+                            <a style="display: none !important;">Amsterdam, Netherlands</a>
+                            <div class="card" >
+                                <div id="headingSeven" class="card-header bg-white shadow-sm border-0">
+                                    <h6 class="mb-0 font-weight-bold"><a href="#" data-toggle="collapse" data-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven" class="d-block position-relative collapsed text-dark text-uppercase collapsible-link py-2" style="font-weight: 400;">Amsterdam, Netherlands</a></h6>
+                                </div>
+                                <div id="collapseSeven" aria-labelledby="headingSeven" class="collapse">
+                                    <div class="card-body p-3" >
+                                        <div class="owl-carousel owl-theme">
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="0">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/h5SGg1wbzT/2020-03-28%2001:10%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="1">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/h5SGg1wbzT/2020-03-29%2010:47%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="2">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/h5SGg1wbzT/2020-03-30%2001:11%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="3">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/h5SGg1wbzT/2020-03-31%2001:11%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="4">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/h5SGg1wbzT/2020-04-01%2001:12%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="5">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/h5SGg1wbzT/2020-04-02%2001:11%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="6">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/h5SGg1wbzT/2020-04-03%2001:10%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="7">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/h5SGg1wbzT/2020-04-04%2001:10%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="8">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/h5SGg1wbzT/2020-04-05%2015:09%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="9">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/h5SGg1wbzT/2020-04-06%2007:10%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="10">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/h5SGg1wbzT/2020-04-07%2011:25%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="11">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/h5SGg1wbzT/2020-04-08%2011:08%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="12">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/h5SGg1wbzT/2020-04-09%2007:09%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="13">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/h5SGg1wbzT/2020-04-10%2013:49%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="14">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/h5SGg1wbzT/2020-04-11%2012:52%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="15">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/h5SGg1wbzT/2020-04-12%2010:09%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="16">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/h5SGg1wbzT/2020-04-13%2006:08%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="17">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/h5SGg1wbzT/2020-04-14%2012:10%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="18">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/h5SGg1wbzT/2020-04-15%2013:59%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="19">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/h5SGg1wbzT/2020-04-16%2014:09%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="20">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/h5SGg1wbzT/2020-04-17%2018:25%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="21">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/h5SGg1wbzT/2020-04-19%2010:09%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="22">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/h5SGg1wbzT/2020-04-20%2001:09%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="23">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/h5SGg1wbzT/2020-04-21%2003:35%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="24">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/h5SGg1wbzT/2020-04-22%2003:16%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="25">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/h5SGg1wbzT/2020-04-24%2003:19%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="26">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/h5SGg1wbzT/2020-05-12%2012:22%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="27">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/h5SGg1wbzT/2020-05-13%2010:48%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="28">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/h5SGg1wbzT/2020-05-16%2012:08%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="29">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/h5SGg1wbzT/2020-06-06%2013:26%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="30">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/h5SGg1wbzT/2020-06-07%2010:38%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="range-slider" style="text-align: center; margin-top: 20px;">
+                                            <input class="range-slider__range r7" oninput="togglerange(this)" type="range" value="0" min="0" max="30" style="width: 40% !important;">
+                                            <span class="range-slider__value r7 s-three">4/01 - 4/03</span>
+                                            <span class="range-slider__value r7 s-two">4/01 - 4/02</span>
+                                            <span class="range-slider__value r7 s-one">4/01</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li data-type = "beach" style="list-style: none;">
+                            <a style="display: none !important;">Koh Phangan, Thailand</a>
+                            <div class="card" >
+                                <div id="headingEight" class="card-header bg-white shadow-sm border-0">
+                                    <h6 class="mb-0 font-weight-bold"><a href="#" data-toggle="collapse" data-target="#collapseEight" aria-expanded="false" aria-controls="collapseEight" class="d-block position-relative collapsed text-dark text-uppercase collapsible-link py-2" style="font-weight: 400;">Koh Phangan, Thailand</a></h6>
+                                </div>
+                                <div id="collapseEight" aria-labelledby="headingEight" class="collapse">
+                                    <div class="card-body p-3" >
+                                        <div class="owl-carousel owl-theme">
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="0">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/Sm7vwNhHoV/2020-03-30%2001:07%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="1">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/Sm7vwNhHoV/2020-03-31%2001:08%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="2">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/Sm7vwNhHoV/2020-04-01%2001:51%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="3">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/Sm7vwNhHoV/2020-04-02%2013:08%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="4">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/Sm7vwNhHoV/2020-04-03%2007:08%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="5">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/Sm7vwNhHoV/2020-04-04%2013:08%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="6">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/Sm7vwNhHoV/2020-04-05%2011:17%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="7">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/Sm7vwNhHoV/2020-04-06%2015:09%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="8">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/Sm7vwNhHoV/2020-04-07%2007:08%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="9">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/Sm7vwNhHoV/2020-04-08%2008:29%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="10">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/Sm7vwNhHoV/2020-04-09%2003:08%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="11">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/Sm7vwNhHoV/2020-04-10%2009:38%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="12">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/Sm7vwNhHoV/2020-04-11%2015:30%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="13">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/Sm7vwNhHoV/2020-04-12%2015:08%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="14">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/Sm7vwNhHoV/2020-04-13%2006:08%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="15">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/Sm7vwNhHoV/2020-04-14%2012:25%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="16">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/Sm7vwNhHoV/2020-04-15%2023:07%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="17">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/Sm7vwNhHoV/2020-04-16%2014:27%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="18">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/Sm7vwNhHoV/2020-04-17%2018:23%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="19">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/Sm7vwNhHoV/2020-04-18%2017:23%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="20">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/Sm7vwNhHoV/2020-04-19%2016:50%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="21">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/Sm7vwNhHoV/2020-04-20%2006:07%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="22">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/Sm7vwNhHoV/2020-04-21%2007:06%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="23">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/Sm7vwNhHoV/2020-04-21%2022:33%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="24">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/Sm7vwNhHoV/2020-04-22%2008:05%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="25">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/Sm7vwNhHoV/2020-04-23%2002:46%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="26">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/Sm7vwNhHoV/2020-04-24%2008:07%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="27">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/Sm7vwNhHoV/2020-05-12%2012:58%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="28">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/Sm7vwNhHoV/2020-05-28%2014:44%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="29">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/Sm7vwNhHoV/2020-06-04%2000:33%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="container" style="max-width: 360px; max-height: 450px;" data-panel="30">
+                                                    <div class="card">
+                                                        <img class="card-img" src="http://vision.cs.luc.edu/~cv/Covid_19_images/reserach/Sm7vwNhHoV/2020-06-10%2014:04%20%20.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="range-slider" style="text-align: center; margin-top: 20px;">
+                                            <input class="range-slider__range r8" oninput="togglerange(this)" type="range" value="0" min="0" max="30" style="width: 40% !important;">
+                                            <span class="range-slider__value r8 s-three">4/01 - 4/03</span>
+                                            <span class="range-slider__value r8 s-two">4/01 - 4/02</span>
+                                            <span class="range-slider__value r8 s-one">4/01</span>                                   </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </div>
+                </div>
+                <h3 class="mb-0" style="font-family: 'Exo 2', sans-serif; color: #1B1B1B; font-weight: 400;">Research Papers</h3>
+                <br>
+                <div class="row">
+                    <div class="col-md-3">
+                    <a href="https://arxiv.org/abs/2005.09091" target="_blank">
+                        <img class="img-fluid rounded mb-3 mb-md-0 IMAGER" style="max-height: 300px !important; border: 1px solid #1B1B1B !important;" src="{{url_for('static', filename='img/Covid-19-paper.png')}}" alt="">
+                    </a>
+                    </div>
+                    <div class="col-md-9">
+                    <h3 style="font-size: 25px; font-weight: 300;">Observing Responses to the COVID-19 Pandemic using Worldwide Network Cameras</h3>
+                    <p class="text-black-50">The pandemic has profoundly changed the world. Traditional methods for observing these historical events are difficult because sending reporters to areas with many infected people can put the reporters' lives in danger. New technologies are needed for safely observing responses to these policies. This paper reports using thousands of network cameras deployed worldwide for the purpose of witnessing activities in response to the policies.</p>
+                    <!--<p class="text-black-50">Author: Isha Ghodgaonkar, Abhinav Goel, Fischer Bordwell, Caleb Tung, Sara Aghajanzadeh, Noah Curran, Ryan Chen, Kaiwen Yu, Sneha Mahapatra, Vishnu Banna, Gore Kao, Kate Lee, Xiao Hu, Nick Eliopolous, Akhil Chinnakotla, Damini Rijhwani, Ashley Kim, Aditya Chakraborty, Mark Daniel Ward, Yung-Hsiang Lu and George K. Thiruvathukal</p>-->
+                    <a class="btn btn-dark inline" href="https://arxiv.org/abs/2005.09091" target="_blank">View Paper</a>
+                    <a id="Citation_1" style="display: none;">
+                        @misc{ghodgaonkar2020observing,
+                            title={Observing Responses to the COVID-19 Pandemic using Worldwide Network Cameras},
+                            author={Isha Ghodgaonkar and Abhinav Goel and Fischer Bordwell and Caleb Tung and Sara Aghajanzadeh and Noah Curran and Ryan Chen and Kaiwen Yu and Sneha Mahapatra and Vishnu Banna and Gore Kao and Kate Lee and Xiao Hu and Nick Eliopolous and Akhil Chinnakotla and Damini Rijhwani and Ashley Kim and Aditya Chakraborty and Mark Daniel Ward and Yung-Hsiang Lu and George K. Thiruvathukal},
+                            year={2020},
+                            eprint={2005.09091},
+                            archivePrefix={arXiv},
+                            primaryClass={cs.CY}
+                        }
+                    </a>
+                    <a class="btn btn-dark inline"  onclick="Copy_To_Clip_Board('#Citation_1')" style=" color:white;" role="button" data-toggle="popover" data-placement="top" data-content="Citation Copied">Cite</a>
+                    </div>
+                </div>
+                <hr>
+                <br>
+                <div class="row">
+                    <div class="col-md-3">
+                    <a href="https://arxiv.org/abs/1904.06775" target="_blank">
+                        <img class="img-fluid rounded mb-3 mb-md-0 IMAGER" style="max-height: 300px !important; border: 1px solid #1B1B1B !important; " src="{{url_for('static', filename='img/CAM-CRAWLER.png')}}" alt="">
+                    </a>
+                    </div>
+                    <div class="col-md-9">
+                    <h3 style="font-size: 25px; font-weight: 300;">See the World through Network Cameras</h3>
+                    <p class="text-black-50">This paper describes the real-time data available from worldwide network cameras and potential applications. Second, this paper outlines the CAM2 System available to users at this https URL. This information includes strategies to discover network cameras and create the camera database, user interface, and computing platforms. Third, this paper describes many opportunities provided by data from network cameras and challenges to be addressed.</p>
+                    <!--<p class="text-black-50">Author: Yung-Hsiang Lu, George K. Thiruvathukal, Ahmed S. Kaseb, Kent Gauen, Damini Rijhwani, Ryan Dailey, Deeptanshu Malik, Yutong Huang, Sarah Aghajanzadeh and Minghao Guo</p>-->
+                    <a class="btn btn-dark inline" href="https://arxiv.org/abs/1904.06775" target="_blank">View Paper</a>
+                    <a id="Citation_2"  style="display: none;">
+                        @misc{lu2019world,
+                            title={See the World through Network Cameras},
+                            author={Yung-Hsiang Lu and George K. Thiruvathukal and Ahmed S. Kaseb and Kent Gauen and Damini Rijhwani and Ryan Dailey and Deeptanshu Malik and Yutong Huang and Sarah Aghajanzadeh and Minghao Guo},
+                            year={2019},
+                            eprint={1904.06775},
+                            archivePrefix={arXiv},
+                            primaryClass={cs.CV}
+                        }
+                    </a>
+                    <a class="btn btn-dark inline"  onclick="Copy_To_Clip_Board('#Citation_2')" style=" color:white;" role="button" data-toggle="popover" data-placement="top" data-content="Citation Copied">Cite</a>
+                    </div>
+                </div>
+                <!-- /.row -->
+            </div>
+        </section>
+        <!-- Footer-->
+        <footer class="footer bg-black small text-center text-white-50"><div class="container">Copyright © CAM² 2020</div></footer>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
+        <!-- Third party plugin JS-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+        <!-- Core theme JS-->
+        <script type="text/javascript" src="{{ url_for('static', filename='js/scripts.js') }}"></script>
+        <script type="text/javascript" src="{{ url_for('static', filename='js/owl.carousel.min.js') }}"></script>
+        <script>
+        $(document).ready(function() {
+            var owl = $(".owl-carousel");
+            var inputType = $(".range-slider__range.r1[type=range]");;
+            owl.owlCarousel({
+                loop:false,
+                dots:false,
+                margin:10,
+                nav:false,
+                lazyLoad:true,
+                navText: ["<i class='fa fa-arrow-left fa-2x' style='color: #1B1B1B !important;'></i>", "<i class='fa fa-arrow-right fa-2x' style='color: #1B1B1B !important'></i>"],
+                'responsive': {
+                    0:{
+                        items:1,
+                        slideBy: 1
+                    },
+                    700:{
+                        items:2,
+                        slideBy: 2
+                    },
+                    1100:{
+                        items:3,
+                        slideBy: 3
+                    }
+                }
+            });
+            owl.on('changed.owl.carousel', function(event) {
+                window.value = event.item.index;
+                inputType.val(event.item.index);
+            });
+            $(".go-me").click(function() {
+                owl.trigger("next.owl.carousel");
+            });
+            $(".back-me").on("click", function() {
+                owl.trigger("prev.owl.carousel");
+            });
+            $("input").on("input", function(e) {
+                e.preventDefault();
+                $('input[type=range]').val($(this).val())
+                var sliders = $('input[type=range]');
+                sliders.each(function(){
+                    var value_cont = $(".range-slider__value." + $(this)[0].classList[1]);
+                    var value = Number($(this)[0].value)+1;
+                    var minced = $(window).width();
+                    if (minced >= 1100)
+                    {
+                        if(value == 31)
+                            value_cont.text("4/"+String(Number($(this)[0].value)-1)+" - "+"5/01")
+                        else if(value >= 1 && value <= 9)
+                            value_cont.text("4/0"+value+" - "+"4/0"+String(Number($(this)[0].value)+3))
+                        else
+                            value_cont.text("4/"+value+" - "+"4/"+String(Number($(this)[0].value)+3))
+                    }
+                    else if(minced >=700)
+                    {
+                        if(value == 31)
+                            value_cont.text("4/"+String(Number($(this)[0].value))+" - "+"5/01")
+                        else if(value >= 1 && value <= 8)
+                            value_cont.text("4/0"+value+" - "+"4/0"+String(Number($(this)[0].value)+2))
+                        else if(value == 9)
+                            value_cont.text("4/0"+value+" - "+"4/"+String(Number($(this)[0].value)+2))
+                        else
+                            value_cont.text("4/"+value+" - "+"4/"+String(Number($(this)[0].value)+2))
+                    }
+                    else
+                    {
+                        if(value == 31)
+                            value_cont.text("5/01")
+                        else if(value >= 1 && value <= 9)
+                            value_cont.text("4/0"+value)
+                        else
+                            value_cont.text("4/"+value)
+                    }
+                })
+                // FIGURE OUT HOW TO GET CAROUSEL INDEX
+                var value = inputType.val();
+                if($(window).width() >700&&value == 24 && window.value ==23)
+                {
+                    value = window.value;
+                    inputType.val(value);
+                }
+                $('.owl-carousel').trigger('to.owl.carousel', [value,1,true]);
+                return;
+            });
+        });
+        </script>
+        <script>
+            var hamburger = document.querySelector(".hamburger");
+            hamburger.addEventListener("click", function() {
+            hamburger.classList.toggle("is-active");
+            });
+        </script>
+        <script>
+            function togglerange(element) {
+                var minced = $(window).width();
+                if (minced >= 1100) {
+                    element.step = 3;
+                }
+                else if(minced >=700)
+                {
+                    element.step = 2;
+                }
+                else{
+                    element.step = 1;
+                }
+            }
+        </script>
+        <script>
+            function myFunction() {
+                // Declare variables
+                var input, filter, ul, li, a, i, txtValue;
+                input = document.getElementById('myInput');
+                filter = input.value.toUpperCase();
+                ul = document.getElementById("accordionExample");
+                li = ul.getElementsByTagName('li');
+                for (i = 0; i < li.length; i++) {
+                    a = li[i].getElementsByTagName("a")[0];
+                    txtValue = a.textContent || a.innerText;
+                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    li[i].style.display = "";
+                    } else {
+                    li[i].style.display = "none";
+                    }
+                }
+            }
+        </script>
+        <script>
+            // get all of our list items
+            var itemsToFilter = document.querySelectorAll("accordionExample div");
+            var checkBoxes = document.querySelectorAll(".filterSection li input");
+            for (var i = 0; i < checkBoxes.length; i++) {
+                checkBoxes[i].addEventListener("click", filterItems, false);
+                checkBoxes[i].checked = true;
+            }
+            function filterItems(e) {
+                var clickedItem = e.target;
+                if (clickedItem.checked == true) {
+                    hideOrShowItems(clickedItem.value, "hideItem", "showItem");
+                } else if (clickedItem.checked == false) {
+                    hideOrShowItems(clickedItem.value, "showItem", "hideItem");
+                } else {
+                    // deal with the indeterminate state if needed
+                }
+            }
+              
+            // add or remove classes to show or hide our content
+            function hideOrShowItems(itemType, classToRemove, classToAdd) {
+                ul = document.getElementById("accordionExample");
+                li = ul.getElementsByTagName('li');
+                for (var i = 0; i < li.length; i++) {
+                    var currentItem = li[i];
+                    if (currentItem.getAttribute("data-type") == itemType) {
+                        removeClass(currentItem, classToRemove);
+                        addClass(currentItem, classToAdd);
+                    }
+                }
+            }
+            function addClass(element, classToAdd) {
+                var currentClassValue = element.className;
+                    
+                if (currentClassValue.indexOf(classToAdd) == -1) {
+                    if ((currentClassValue == null) || (currentClassValue === "")) {
+                        element.className = classToAdd;
+                    } else {
+                        element.className += " " + classToAdd;
+                    }
+                }
+            }  
+            function removeClass(element, classToRemove) {
+                var currentClassValue = element.className;
+                if (currentClassValue == classToRemove) {
+                    element.className = "";
+                    return;
+                }
+                var classValues = currentClassValue.split(" ");
+                var filteredList = [];
+                for (var i = 0 ; i < classValues.length; i++) {
+                    if (classToRemove != classValues[i]) {
+                        filteredList.push(classValues[i]);
+                    }
+                }
+                element.className = filteredList.join(" ");
+            }
+        </script>
+        <script>
+            function Copy_To_Clip_Board(element) {
+            var $temp = $("<input>");
+            $("body").append($temp);
+            $temp.val($(element).text()).select();
+            document.execCommand("copy");
+            $temp.remove();
+            /* Alert the copied text */
+            alert("Copied the text: " + copyText.value);
+            }
+        </script>
+        <script>
+            $(function () {
+                $('[data-toggle="popover"]').popover()
+            })
+        </script>
+        <script>
+            $('body').on('click', function (e) {
+                $('[data-toggle=popover]').each(function () {
+                    // hide any open popovers when the anywhere else in the body is clicked
+                    if (!$(this).is(e.target) && $(this).has(e.target).length === 0 && $('.popover').has(e.target).length === 0) {
+                        $(this).popover('hide');
+                    }
+                });
+            });
+        </script>
+    </body>
+</html>
+<!--                navText: ["<i class='fa fa-arrow-left fa-2x' style='color: #1B1B1B !important;'></i>", "<i class='fa fa-arrow-right fa-2x' style='color: #1B1B1B !important'></i>"],
+-->

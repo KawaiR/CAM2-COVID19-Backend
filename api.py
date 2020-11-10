@@ -19,12 +19,21 @@ def plot(place, start, end):
 
 app = flask.Flask(__name__)
 
-@app.route('/')
-def index():
+@app.route('/analysis')
+def analysis():
   today = date.today()
   max_date = today.strftime("%Y-%m-%d")
   min_date = "2020-04-01"
-  return render_template("index.html", min_date=min_date, max_date=max_date)
+  countries = ["United States", "Australia", "France",
+                     "Austria", "Denmark", "Great Britain",
+                     "Czech Republic", "Switzerland", "Italy",
+                     "Germany", "Canada", "New Zealand",
+                     "Hong Kong", "Spain", "Hungary"]
+  return render_template("analysis.html", min_date=min_date, max_date=max_date, countries=countries)
+
+@app.route('/research')
+def research():
+  return render_template("research.html")
 
 # This function get the POST request and return the plot in format of html
 @app.route('/query', methods = ['POST'])
