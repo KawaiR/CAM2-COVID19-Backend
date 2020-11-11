@@ -13,8 +13,11 @@ from datetime import date
 
 
 # This function generates the plot
-def plot(place, start, end):
-  return scatterplots.generate_plot(country=place, date1=start, date2=end)
+def plot(country, state, start, end):
+  if country == "United States":
+    return scatterplots.generate_plot(state=state, date1=start, date2=end)
+  else:
+    return scatterplots.generate_plot(country=country, date1=start, date2=end)
 
 
 app = flask.Flask(__name__)
@@ -28,18 +31,13 @@ def analysis():
   today = date.today()
   max_date = today.strftime("%Y-%m-%d")
   min_date = "2020-04-01"
-  countries = ["United States", "Australia", "France",
-                     "Austria", "Denmark", "Great Britain",
-                     "Czech Republic", "Switzerland", "Italy",
-                     "Germany", "Canada", "New Zealand",
-                     "Hong Kong", "Spain", "Hungary"]
-  return render_template("analysis.html", min_date=min_date, max_date=max_date, countries=countries)
+  return render_template("analysis.html", min_date=min_date, max_date=max_date)
 
 @app.route('/research/')
 def research():
   return render_template("research.html")
 
-@app.route('/members/)
+@app.route('/members/')
 def members():
   return render_template("members.html")
 
@@ -52,7 +50,7 @@ def timeline():
 def query():
   # Get data from ajax request
   data = json.loads(request.data)
-  plt_html = plot(data["country"], data["start"], data["end"])
+  plt_html = plot(data["country"], data["state"], data["start"], data["end"])
   return plt_html
 
 

@@ -61,13 +61,55 @@
                 <p>
                     <!--Slide bar value display-->
                     <!--Select country-->
+                    <div>
                     <label for="country">Country: </label>
-                    <input type="text" id="country" name="country" value="Germany">
+                    <select id="country">
+                        <option value ="Australia">Australia</option>
+                        <option value="Austria">Austria</option>
+                        <option value="Canada">Canada</option>
+                        <option value="Czech Republic">Czech Republic</option>
+                        <option value="Denmark">Denmark</option>
+                        <option value="France">France</option>
+                        <option value="Germany">Germany</option>
+                        <option value="Great Britain">Great Britain</option>
+                        <option value="Hong Kong">Hong Kong</option>
+                        <option value="Hungary">Hungary</option>
+                        <option value="Italy">Italy</option>
+                        <option value="Spain">Spain</option>
+                        <option value ="United States" selected="selected">United States</option>
+                    </select>
+                    <script>
+                        document.getElementById("country").onclick = function() { 
+                            if (country.value == "United States") {
+                                document.getElementById("state-selector").style.display = "block";
+                            } else {
+                                document.getElementById("state-selector").style.display = "none";
+                            }
+                        } 
+                    </script>
+                    <div id="state-selector">
+                    <label for="state">State: </label>
+                    <select id="state">
+                        <option value ="Alabama">AL</option>
+                        <option value="Alaska">AK</option>
+                        <option value="American Samoa">AS</option>
+                        <option value="Arizona">AZ</option>
+                        <option value="Arkansas">AR</option>
+                        <option value="California">CA</option>
+                        <option value="Colorado">CO</option>
+                        <option value="Connecticut">CT</option>
+                        <option value="District of Columbia">DC</option>
+                        <option value="Florida">FL</option>
+                        <option value="Georgia">GA</option>
+                        <option value="Guam">GU</option>
+                        <option value =" Hawaii">HI</option>
+                    </select>
+                    </div>
                     <label for="start">Start Date:</label>
                     <input type="date" id="start" name="start" value="2020-05-01" min={{ min_date }} max={{ max_date }}>
                     <label for="end">End Date:</label>
                     <input type="date" id="end" name="end" value="2020-07-01" min={{ min_date }} max={{ max_date }}>
-                
+                    </div>
                     <br>
                     <!--View plot button-->
                     <button type="button" id="query" style="background-color: #555555;
@@ -106,6 +148,7 @@
         <footer class="footer bg-black small text-center text-white-50"><div class="container">Copyright © CAM² 2020</div></footer>
         <!-- Javascript code -->
         <script type="text/javascript">
+                
             $("#loading-div-background").css({ opacity: 0.7 });
             /* This function customize the slide bar*/
             $(function() {
@@ -132,9 +175,10 @@
                 $("#container").hide();
                 /* Get value of slide bar */
                 var country = document.getElementById("country").value;
+                var state = document.getElementById("state").value;
                 var start = document.getElementById("start").value;
                 var end = document.getElementById("end").value;
-                var qu = {"country":country, "start":start, "end":end};
+                var qu = {"country":country, "state": state,"start":start, "end":end};
                 /* ajax request: send range value and receive the plot*/
                 $.ajax({
                 type: "POST",
