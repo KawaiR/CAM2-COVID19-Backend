@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>CAM² COVID-19</title>
+        <link rel="icon" type="image/x-icon" href="favicon.ico" />
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v5.13.0/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Muli:400,400i,600,800,800i" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100;0,200;1,100;1,200" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdn.rawgit.com/konpa/devicon/df6431e323547add1b4cf45992913f15286456d3/devicon.min.css">
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="{{ url_for('static', filename='css/styles.css') }}"  type="text/css" rel="stylesheet" />
+        <link href="{{ url_for('static', filename='css/test.css') }}"  type="text/css" rel="stylesheet">
+        <link href="{{ url_for('static', filename='css/resume.css') }}"  type="text/css"  rel="stylesheet">
+        <link href="{{ url_for('static', filename='css/hamburgers.css') }}"  type="text/css"  rel="stylesheet">
+        
+    </head>
+    <header id="stickyheaders">
+        <!-- Navigation -->
+        <nav class="navbar navbar-expand-md navbar-dark fixed-top navbar-custom shadow-sm" style="transition: top 0.3s; padding-top: 0px !important; padding-bottom: 0px !important;" id="mainNav">
+        <div class="container">
+            <a href="https://covid19.purduehelps.org/" class="navbar-brand js-scroll-trigger navbar-image">
+                <img style="width: 65px; height: 39px;" src="{{url_for('static', filename='img/Cam_2.png')}}">
+            </a>
+            <button class="hamburger hamburger--spin navbar-toggler navbar-mobile-element" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"  type="button" style="margin-top: 5px !important;">
+            <span class="hamburger-box">
+                <span class="hamburger-inner"></span>
+            </span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <div class="navbar-nav ml-auto">
+                    <li class="nav-item active"> <a href="https://covid19.purduehelps.org/" class="nav-item nav-link active" style="font-family: 'Exo 2', sans-serif; font-size: 20px; font-weight: 100; text-decoration: none !important; ">Home<span class="sr-only">(current)</span></a> </li>
+                    <li class="nav-item"> <a href="https://covid19.purduehelps.org/timeline/" class="nav-item nav-link" style="font-family: 'Exo 2', sans-serif; font-size: 20px; font-weight: 100; text-decoration: none !important;">Timeline</a> </li>
+                    <li class="nav-item"> <a href="https://covid19.purduehelps.org/research/" class="nav-item nav-link" style="font-family: 'Exo 2', sans-serif; font-size: 20px; font-weight: 100;  text-decoration: none !important;">Research</a> </li>
+                    <li class="nav-item"> <a href="https://covid19.purduehelps.org/analysis/" class="nav-item nav-link" style="font-family: 'Exo 2', sans-serif; font-size: 20px; font-weight: 100;  text-decoration: none !important;">Analysis</a> </li>
+                    <li class="nav-item"> <a href="https://covid19.purduehelps.org/members/" class="nav-item nav-link" style="font-family: 'Exo 2', sans-serif; font-size: 20px; font-weight: 100;  text-decoration: none !important; ">Members</a> </li>
+                    <li class="nav-item"> <a href="https://www.cam2project.net/" class="nav-item nav-link" style="font-family: 'Exo 2', sans-serif; font-size: 20px; font-weight: 100;  text-decoration: none !important; " target="_blank">CAM²</a> </li>
+                    <!--Hwy-->
+                </div>
+            </div>
+        </div>
+        </nav>
+    </header>
+    <body id="page-top" style="margin-top:-50px;">
+        <!-- Masthead-->
+        <header class="masthead">
+            <div class="container d-flex h-100 align-items-center">
+                <div class="mx-auto text-center">
+                    <p class="mx-auto my-0" style="font-family: 'Exo 2', sans-serif; font-weight: 600px; font-size: 80px; color: white;">Covid-19:</p>
+                    <p class="text-white-50 mx-auto mt-0 mb-0" style="font-family: 'Exo 2', sans-serif; font-weight: 600px; font-size: 20px; color: white;">A Study of Social Distancing</p>
+                    <p class="text-white-50 mx-auto mt-0 mb-5" style="font-family: 'Exo 2', sans-serif; font-weight: 600px; font-size: 15px; color: white;">Powered by CAM²</p>
+                </div>
+            </div>
+        </header>
+        <!-- About-->
+        <section class="about-section text-center" id="about">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 mx-auto">
+                        <h2 class="text-white mb-4" style="font-family: 'Exo 2', sans-serif; font-weight: 600px; font-size: 40px; color: white;">What is Covid-19 and Social Distancing?</h2>
+                        <p class="text-white-50" style="font-family: 'Exo 2', sans-serif; font-weight: 600px; font-size: 15px; color:white;">At the start of 2020, a novel Coronavirus surfaced, abruptly changing the lives of everyone. Due to how effectively this virus is able to spread, governments around the world were forced to take action. Without a vaccine, their most effective tool to keep society safe is social distancing. Social distancing is the act of keeping at least 6 feet between yourself and the people around you. By keeping your distance from other people you are creating a barrier overwhich the virus must cross inorder to infect you. For more information about social distancing check out the time line and our research tabs.</p>
+                    </div>
+                </div>
+                <img class="img-fluid" src="{{url_for('static', filename='img/home/slimbar-covid-2.png')}}" alt="" />
+            </div>
+        </section>
+        <!-- Projects-->
+        <section class="projects-section bg-light" id="projects" style="padding-bottom: 100px;">
+            <div class="container">
+                <!-- Featured Project Row-->
+                <div class="row align-items-center no-gutters mb-4 mb-lg-5">
+                    <iframe class="videoformatting col-xl-8 col-lg-7" style="margin-left: auto; margin-right: auto; border: 2px solid black;" src="https://www.youtube.com/embed/J8PEUhxBd_0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <div class="col-xl-4 col-lg-5">
+                        <div class="featured-text text-center text-lg-left">
+                            <h4 style="font-family: 'Exo 2', sans-serif; font-weight: 600px;">Our Mission</h4>
+                            <p class="text-black-50 mb-0">	Our mission is to analyze worldwide network camera data and use it to quantify social distancing during the COVID-19 pandemic. By analyzing how different kinds of policies observed during the pandemic affects social distancing, we aim to generate insights into the best safety policies for future pandemics, and analyze the risk of a second wave of COVID-19.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="bg-light bottom-padding">
+            <div id="mapCanvas" class="featured-text text-center" style="width: 90%; height: 400px; width: 800px; margin: auto !important;"></div>
+        </section>
+        <section class="bg-light bottom-padding" id="projects">
+            <div id="mapCanvas"></div>
+            <div class="featured-text text-center" style="width: 90%; height: 250px; max-width: 700px; margin: auto !important;">
+                <h4 style="font-family: 'Exo 2', sans-serif; font-weight: 600px; padding-top: 40px;">Our Method</h4>
+                <p class="text-black-50 mb-0">	Using our team's system of IP cameras and Live Stream Feeds from around the world, we have been able to utilize more than 30000 cameras to collect data. We are analyzing our collection of data by employing deep learning methods for scene classification, crowd density estimation, object detection, and distance estimation. The combination of these methods allow us to quantitatively understand the role social distancing has played in limiting the spread of Covid-19 in various city centers.</p>
+            </div>
+        </section>
+        <!-- Contact-->
+        <section class="contact-section bg-black" style="margin-bottom: -80px;">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 mb-0 mb-md-0">
+                        <div class="card py-4" style="height: 80% !important;">
+                            <div class="card-body text-center" style="margin-top: -15px;">
+                                <i class="fas fa-envelope text-dark mb-2" style="height: 30px; width: 30px;"></i>
+                                <h5 class="text-uppercase m-0"  style="font-family: 'Exo 2', sans-serif;">Contact Us</h5>
+                                <hr class="my-3" />
+                                <div class="small text-black-50">yunglu@ecn.purdue.edu</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-0 mb-md-0">
+                        <div class="card py-4" style="height: 80% !important;">
+                            <div class="card-body text-center" style="margin-top: -15px;">
+                                <i class="fab fa-github text-dark mb-2" style="height: 30px; width: 30px;"></i>
+                                <h5 class="text-uppercase m-0" style="font-family: 'Exo 2', sans-serif;">Github</h5>
+                                <hr class="my-3" />
+                                <div class="small text-black-50"><a href="https://github.com/PurdueCAM2Project/COVID-19" target="_blank">https://github.com/PurdueCAM2Project/COVID-19</a></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Footer-->
+        <footer class="footer bg-black small text-center text-white-50"><div class="container">Copyright © CAM² 2020</div></footer>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
+        <!-- Third party plugin JS-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+        <!-- Core theme JS-->
+        <script type="text/javascript" src="{{ url_for('static', filename='js/scripts.js') }}"></script>
+
+        
+        <!-- Marker CLusterer JS-->
+        <script src="http://d3js.org/d3.v5.min.js" charset="utf-8"></script>
+        <script type="text/javascript" src=https://unpkg.com/@google/markerclusterer@2.0.6/dist/markerclusterer.min.js></script>
+        <script type="text/javascript" src="{{ url_for('static', filename='js/clustermap.js') }}"></script>
+        <script type="text/javascript" src="{{ url_for('static', filename='js/loadapi.js') }}"></script>
+        <script>
+            var hamburger = document.querySelector(".hamburger");
+            hamburger.addEventListener("click", function() {
+            hamburger.classList.toggle("is-active");
+            });
+        </script>
+    </body>
+</html>
