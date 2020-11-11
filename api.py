@@ -23,7 +23,7 @@ app = flask.Flask(__name__)
 def home():
   return render_template("index.html")
 
-@app.route('/analysis')
+@app.route('/analysis/')
 def analysis():
   today = date.today()
   max_date = today.strftime("%Y-%m-%d")
@@ -35,15 +35,15 @@ def analysis():
                      "Hong Kong", "Spain", "Hungary"]
   return render_template("analysis.html", min_date=min_date, max_date=max_date, countries=countries)
 
-@app.route('/research')
+@app.route('/research/')
 def research():
   return render_template("research.html")
 
-@app.route('/members')
+@app.route('/members/)
 def members():
   return render_template("members.html")
 
-@app.route('/timeline')
+@app.route('/timeline/')
 def timeline():
   return render_template("timeline.html")
 
