@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>CAM² COVID-19</title>
+        <link rel="icon" type="image/x-icon" href="favicon.ico"/>
+        <link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100;0,200;1,100;1,200&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Gupter:wght@400;500;700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Economica:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+        <!-- <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@100;200;300;400;500;600&display=swap" rel="stylesheet"> -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script type="text/javascript" src="{{ url_for('static', filename='js/panelsnap.js') }}"></script>
+        <script type="text/javascript" src="{{ url_for('static', filename='js/scripts.js') }}"></script>
+        <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}"  type="text/css" rel="stylesheet">
+        <link href="{{ url_for('static', filename='css/hamburgers.css') }}"  type="text/css"  rel="stylesheet">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/script.css') }}"  type="text/css">
+        <title>Document</title>
+    </head>
+    <header id="stickyheaders">
+        <!-- Navigation -->
+        <nav class="navbar navbar-expand-md navbar-dark fixed-top navbar-custom shadow-sm navbar-color-changer" style="background-color: transparent; backdrop-filter: blur(5px); transition: top 0.3s; padding-bottom: 0px !important; padding-top: 0px !important;"  id="mainNav">
+            <div class="container" style=" padding-left: 12px !important; padding-right: 12px !important;">
+                <a href="https://covid19.purduehelps.org/" class="navbar-brand js-scroll-trigger navbar-image">
+                    <img style="width: 65px; height: 39px;" src="{{url_for('static', filename='img/Cam_2.png')}}">
+                </a>
+                <button class="hamburger hamburger--spin navbar-toggler navbar-mobile-element" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"  type="button">
+                    <span class="hamburger-box">
+                        <span class="hamburger-inner"></span>
+                    </span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <div class="navbar-nav ml-auto">
+                        <li class="nav-item"> <a href="https://covid19.purduehelps.org/" class="nav-item nav-link" style="font-family: 'Exo 2', sans-serif; font-size: 20px; font-weight: 100; text-decoration: none !important; letter-spacing: 1px;">Home</a> </li>
+                        <li class="nav-item active"> <a href="https://covid19.purduehelps.org/timeline/" class="nav-item nav-link active" style="font-family: 'Exo 2', sans-serif; font-size: 20px; font-weight: 100; text-decoration: none !important; letter-spacing: 1px;">Timeline<span class="sr-only">(current)</span></a> </li>
+                        <li class="nav-item"> <a href="https://covid19.purduehelps.org/research/" class="nav-item nav-link" style="font-family: 'Exo 2', sans-serif; font-size: 20px; font-weight: 100;  text-decoration: none !important; letter-spacing: 1px;">Research</a> </li>
+                        <li class="nav-item"> <a href="https://covid19.purduehelps.org/analysis/" class="nav-item nav-link" style="font-family: 'Exo 2', sans-serif; font-size: 20px; font-weight: 100;  text-decoration: none !important; letter-spacing: 1px;">Analysis</a> </li>
+                        <li class="nav-item"> <a href="https://covid19.purduehelps.org/members/" class="nav-item nav-link" style="font-family: 'Exo 2', sans-serif; font-size: 20px; font-weight: 100;  text-decoration: none !important; letter-spacing: 1px;">Members</a> </li>
+                        <li class="nav-item"> <a href="https://www.cam2project.net/" class="nav-item nav-link" style="font-family: 'Exo 2', sans-serif; font-size: 20px; font-weight: 100;  text-decoration: none !important; letter-spacing: 1px;" target="_blank">CAM²</a> </li>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <body>
+        <div id = "scroll_wrap">
+            <div class = "container" id="bg">
+                <section class = "module parallax parallax-1">
+                    <div class = "title_page">
+                        <p class = "titles prep"> The Story of COVID-19:</p>
+                        <p class = "titles2 mt-2"> And Our Milestones of Progress</p>
+                        <div id = "info">
+                            <div id="directions">
+                                <a href = "#one" id="link1"> Scroll Side to Side or click to continue </a>
+                            </div>
+                            <div id="SS">
+                                <a href = "https://en.wikipedia.org/wiki/USNS_Comfort_(T-AH-20)" target="_blank" id="link2">
+                                    * SS Comort is a ship sent for relief during pandemics, it sails as a symbol of hope. click here for more info*
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section class = "module parallax parallax-2">
+                    <div class="information_cont" id = "one">
+                        <div class= "page_title">
+                            <div>
+                                <p class = "date"> November 17<span>, 2019</span></p>
+                                <p class = "location"><span>China</span></p>
+                            </div>
+                        </div>
+                        <div class= "text-1">
+                            <p> On December 8th of 2019, Officials in China reported
+                            people showing sysmptoms of a corona virus. At the time it was unknown that
+                            this virus was not the same as SARS in 2002, so drastic measures where not
+                            taken. In the coming weeks, this virus would be reported to the World Health Organization,
+                            and By December 31st, this virus was not only confimed to be a novel corona virus. By
+                            February 11th of 2020, this disease was officially named COVID-19 as an acronym for COronaVIrus
+                            Disease discovered in 2019, and the virus causing it was named SARS-CoV-2 (Severe acute
+                            respiratory syndrome coronavirus 2).</p>
+                        </div>
+                        <div class= "image1 image-1"></div>
+                        <div class= "image2 image-2"></div>
+                        <div class= "image3 image-3"></div>
+                        <div class= "image4 image-4"></div>
+                        <div class= "data">
+                            <div>
+                                <p class = "label">Number of cases (World Wide):</p>
+                                <p class = "label_val"> 1 </p>
+                                <p class = "label">Amount of data Collected:</p>
+                                <p class = "label_val"> 0 <span>GB</span></p>
+                            </div>
+                        </div>
+                        <a class = "instruct" href = "#two"> << scroll or click to continue >> </a>
+                        <!-- <div class = "border-1">b1</div>
+                        <div class = "border-2">b2</div>
+                        <div class = "border-3">b3</div>
+                        <div class = "border-4">b4</div> -->
+                    </div>
+                </section>
+                <section class = "module parallax parallax-3" >
+                    <div class="information_cont" id = "two">
+                        <div class= "page_title">
+                            <div>
+                                <p class = "date"> January 21<span>, 2020</span></p>
+                                <p class = "location"><span>USA</span></p>
+                            </div>
+                        </div>
+                        <div class= "image5 image-1"></div>
+                        <div class= "image6 image-2"></div>
+                        <div class= "image7 image-3"></div>
+                        <div class= "image8 image-4"></div>
+                        <div class= "text-2">
+                            <p> The Centers for Disease Control and Prevention confirmed the first US case of coronavirus - a man in his 30s in
+                                 Washington state who had returned from Wuhan a week earlier. WHO also announced on Jan 22nd that there was evidence
+                                 of human-to-human transmission in Wuhan, hinting the risk of a possible wider outbreak. On Jan 30, WHO declared
+                                 the outbreak a global public health emergency after 9000 cases were reported worldwide in 18 countries.</p>
+                        </div>
+                        <div class= "data">
+                            <div>
+                                <p class = "label">Number of cases (World Wide):</p>
+                                <p class = "label_val"> 580 </p>
+                                <p class = "label">Amount of data Collected:</p>
+                                <p class = "label_val"> 0 <span>GB</span></p>
+                            </div>
+                        </div>
+                        <a class = "instruct" href = "#three"> << scroll or click to continue >> </a>
+                        <!-- <div class = "border-1">b1</div>
+                        <div class = "border-2">b2</div>
+                        <div class = "border-3">b3</div>
+                        <div class = "border-4">b4</div> -->
+                    </div>
+                </section>
+                <section class = "module parallax parallax-4" >
+                    <div class="information_cont" id = "three">
+                        <div class= "page_title">
+                            <div>
+                                <p class = "date"> February 18<span>, 2020</span></p>
+                                <p class = "location"><span>Japan</span></p>
+                            </div>
+                        </div>
+                        <div class= "text-1">
+                            <p>Ten people from the Diamond Princess cruise ship off the coast of Japan tested positive for coronavirus and hundreds of people were left quarantined on the ship. At least 542 people out of 3000 passengers were later infected on the ship making the ship the site of the largest cluster of infection outside of China. The quarantine was heavily criticized as some said the ship was the perfect incubator for the virus and countries worked to evacuate their citizens from the cruise ship.</p>
+                        </div>
+                        <div class= "image1 image-5"></div>
+                        <div class= "image2 image-6"></div>
+                        <div class= "image3 image-7"></div>
+                        <div class= "image4 image-8"></div>
+                        <div class= "data">
+                            <div>
+                                <p class = "label">Number of cases (World Wide):</p>
+                                <p class = "label_val"> 34,933 </p>
+                                <p class = "label">Amount of data Collected:</p>
+                                <p class = "label_val"> 0 <span>GB</span></p>
+                            </div>
+                        </div>
+                        <a class = "instruct" href = "#four"> << scroll or click to continue >> </a>
+                        <!-- <div class = "border-1">b1</div>
+                        <div class = "border-2">b2</div>
+                        <div class = "border-3">b3</div>
+                        <div class = "border-4">b4</div> -->
+                    </div>
+                </section>
+                <section class = "module parallax parallax-5" >
+                    <div class="information_cont" id = "four">
+                        <div class= "page_title">
+                            <div>
+                                <p class = "date"> March 1<span>, 2020</span></p>
+                                <p class = "location"><span>UN Head Quarters</span></p>
+                            </div>
+                        </div>
+                        <div class= "image5 image-5"></div>
+                        <div class= "image6 image-6"></div>
+                        <div class= "image7 image-7"></div>
+                        <div class= "image8 image-8"></div>
+                        <div class= "text-2">
+                            <p>The United Nations Humanitarian Chief Mark Lowcock released US$15 million from the Central Emergency Response Fund (CERF) to help fund global efforts to contain the COVID-19 virus. The grant was released to aid countries with fragile health systems to accelerate their detection and response operations. WHO upgraded the global risk of the virus outbreak to “very high”, though said there is still a chance of containing the virus if its chain of transmission is broken. </p>
+                        </div>
+                        <div class= "data">
+                            <div>
+                                <p class = "label">Number of cases (World Wide):</p>
+                                <p class = "label_val"> 87,042 </p>
+                                <p class = "label">Amount of data Collected:</p>
+                                <p class = "label_val"> 0 <span>GB</span></p>
+                            </div>
+                        </div>
+                        <a class = "instruct" href = "#five"> << scroll or click to continue >> </a>
+                        <!-- <div class = "border-1">b1</div>
+                        <div class = "border-2">b2</div>
+                        <div class = "border-3">b3</div>
+                        <div class = "border-4">b4</div> -->
+                    </div>
+                </section>
+                <section class = "module parallax parallax-6" >
+                    <div class="information_cont" id = "five">
+                        <div class= "page_title">
+                            <div>
+                                <p class = "date"> March 13<span>, 2020</span></p>
+                                <p class = "location"><span>Italy</span></p>
+                            </div>
+                        </div>
+                        <div class= "text-1">
+                            <p>Scientists identified a new strain of the coronavirus that appears to be more contagious than the initial virus that spread. The new strain appeared in Italy, quickly swelling the confirmed cases of coronavirus to more than 15,000 people; Italy became the hotspot for the disease forcing the entire country to go on a lockdown.  The new strain migrated quickly to the East Coast of the United States and with it the number of confirmed coronavirus cases surpassed 3000 in the country. On March 11, for the first time, the World Health Organization declared the outbreak as a pandemic.  </p>
+                        </div>
+                        <div class= "image1 image-9"></div>
+                        <div class= "image2 image-10"></div>
+                        <div class= "image3 image-11"></div>
+                        <div class= "image4 image-12"></div>
+                        <div class= "data">
+                            <div>
+                                <p class = "label">Number of cases (World Wide):</p>
+                                <p class = "label_val"> 120,250 </p>
+                                <p class = "label">Amount of data Collected:</p>
+                                <p class = "label_val"> 0 <span>GB</span></p>
+                            </div>
+                        </div>
+                        <a class = "instruct" href = "#six"> << scroll or click to continue >> </a>
+                        <!-- <div class = "border-1">b1</div>
+                        <div class = "border-2">b2</div>
+                        <div class = "border-3">b3</div>
+                        <div class = "border-4">b4</div> -->
+                    </div>
+                </section>
+                <section class = "module parallax parallax-7" >
+                    <div class="information_cont" id = "six">
+                        <div class= "page_title">
+                            <div>
+                                <p class = "date"> March 29<span>, 2020</span></p>
+                                <p class = "location"><span>USA</span></p>
+                            </div>
+                        </div>
+                        <div class= "image5 image-9"></div>
+                        <div class= "image6 image-10"></div>
+                        <div class= "image7 image-11"></div>
+                        <div class= "image8 image-12"></div>
+                        <div class= "text-2">
+                            <p>President Trump extended his administration’s guidelines on social distancing until April 30 President Donald Trump announced that the administration’s guidelines on social distancing during the COVID-19 outbreak is being extended until April 30. Trump mentioned earlier in the week that he wanted to see much of the country return to normal by April 12 but after consulting the administration’s top medical experts he announced that June 1 would mark “the bottom of the hill.” In the same week, the Centers for Disease Control and Prevention issued a travel advisory for New York, New Jersey and Connecticut, asking residents to refrain from non-essential travel for 14 days. </p>
+                        </div>
+                        <div class= "data">
+                            <div>
+                                <p class = "label">Number of cases (World Wide):</p>
+                                <p class = "label_val"> 674,897 </p>
+                                <p class = "label">Amount of data Collected:</p>
+                                <p class = "label_val"> 29 <span>GB</span></p>
+                            </div>
+                        </div>
+                        <a class = "instruct" href = "#seven"> << scroll or click to continue >> </a>
+                        <!-- <div class = "border-1">b1</div>
+                        <div class = "border-2">b2</div>
+                        <div class = "border-3">b3</div>
+                        <div class = "border-4">b4</div> -->
+                    </div>
+                </section>
+                <section class = "module parallax parallax-8" >
+                    <div class="information_cont" id = "seven">
+                        <div class= "page_title">
+                            <div>
+                                <p class = "date"> April 13, <span>2020</span></p>
+                                <p class = "location"><span>USA</span></p>
+                            </div>
+                        </div>
+                        <div class= "text-1">
+                            <p>Rutgers University researchers received US government clearance for the first saliva test to help diagnose COVID-19, which is a new approach to help expand testing options as well as reduce risks of infection for healthcare workers. The previous approach required healthcare workers to take a swab from a patient’s nose or throat. With the new saliva-based test, patients are given a plastic tube into which they spit several times, and handed back to the healthcare workers for laboratory processing. Hence, this new approach prevents the workers from having to actually be in the face of patient that may carry the virus.  </p>
+                        </div>
+                        <div class= "image1 image-13"></div>
+                        <div class= "image2 image-14"></div>
+                        <div class= "image3 image-15"></div>
+                        <div class= "image4 image-16"></div>
+                        <div class= "data">
+                            <div>
+                                <p class = "label">Number of cases (World Wide):</p>
+                                <p class = "label_val"> 1.82 million </p>
+                                <p class = "label">Amount of data Collected:</p>
+                                <p class = "label_val"> 450 <span>GB</span> </p>
+                            </div>
+                        </div>
+                        <a class = "instruct" href = "#eight"> << scroll or click to continue >> </a>
+                        <!-- <div class = "border-1">b1</div>
+                        <div class = "border-2">b2</div>
+                        <div class = "border-3">b3</div>
+                        <div class = "border-4">b4</div> -->
+                    </div>
+                </section>
+                <section class = "module parallax parallax-9" >
+                    <div class="information_cont" id = "eight">
+                        <div class= "page_title">
+                            <div>
+                                <p class = "date"> May 13 <span>, 2020</span></p>
+                                <p class = "location"><span>UN Head Quarters</span></p>
+                            </div>
+                        </div>
+                        <div class= "image5 image-13"></div>
+                        <div class= "image6 image-14"></div>
+                        <div class= "image7 image-15"></div>
+                        <div class= "image8 image-16"></div>
+                        <div class= "text-2">
+                            <p>The coronavirus-induced economic shutdown tore through the US labor market as the economy lost 20.5 million jobs in April and the unemployment rate soared to 14.7%, both record highs. A United Nations report forecasted that the coronavirus pandemic will shrink the world economy by 3.2 percent this year, the sharpest contraction since the Great Depression in the 1930s. The report said that the pandemic is “exacerbating poverty and inequality,” with an estimated 34.3 million people likely to fall below the extreme poverty line of $1.90 a day in 2020 — 56% of them in Africa. </p>
+                        </div>
+                        <div class= "data">
+                            <div>
+                                <p class = "label">Number of cases (World Wide):</p>
+                                <p class = "label_val"> 4.22 million </p>
+                                <p class = "label">Amount of data Collected:</p>
+                                <p class = "label_val"> 1350 <span>GB</span></p>
+                            </div>
+                        </div>
+                        <a class = "instruct" href = "#nine"> << scroll or click to continue >> </a>
+                        <!-- <div class = "border-1">b1</div>
+                        <div class = "border-2">b2</div>
+                        <div class = "border-3">b3</div>
+                        <div class = "border-4">b4</div> -->
+                    </div>
+                </section>
+                <section class = "module parallax parallax-10" >
+                    <div class="information_cont" id = "nine">
+                        <div class= "page_title">
+                            <div>
+                                <p class = "date"> May 15<span>, 2020</span></p>
+                                <p class = "location"><span>China</span></p>
+                            </div>
+                        </div>
+                        <div class= "text-1">
+                            <p>China passed the one-month mark without announcing any new coronavirus deaths. The National Health Commission reported four new cases of the virus on May 13 all local cross-infections in the northeastern province of Jilin where a cluster of uncertain origin has been detected in recent days. However, the last time the commission reported a death was on April 14. In total, China has reported 4,633 deaths among 82,933 cases since the virus was first detected late last year in the central city of Wuhan. On May 15, the National Health Commision reported that only 91 people remain in treatment for COVID-19 and 623 others being monitored for suspected cases. </p>
+                        </div>
+                        <div class= "image1 image-17"></div>
+                        <div class= "image2 image-18"></div>
+                        <div class= "image3 image-19"></div>
+                        <div class= "image4 image-20"></div>
+                        <div class= "data">
+                            <div>
+                                <p class = "label">Number of cases (World Wide):</p>
+                                <p class = "label_val"> 4.41 million </p>
+                                <p class = "label">Amount of data Collected:</p>
+                                <p class = "label_val"> 1406 <span>GB</span></p>
+                            </div>
+                        </div>
+                        <a class = "instruct" href = "#ten"> << scroll or click to continue >> </a>
+                        <!-- <div class = "border-1">b1</div>
+                        <div class = "border-2">b2</div>
+                        <div class = "border-3">b3</div>
+                        <div class = "border-4">b4</div> -->
+                    </div>
+                </section>
+                <section class = "module parallax parallax-11" >
+                    <div class="information_cont" id = "ten">
+                        <div class= "page_title">
+                            <div>
+                                <p class = "date"> May 26<span>, 2020</span></p>
+                                <p class = "location"><span>USA</span></p>
+                            </div>
+                        </div>
+                        <div class= "image5 image-17"></div>
+                        <div class= "image6 image-18"></div>
+                        <div class= "image7 image-19"></div>
+                        <div class= "image8 image-20"></div>
+                        <div class= "text-2">
+                            <p> Latin America has passed Europe and the United States in daily infections and The World Health Organization announced that the Americas had emerged as the new epicenter of the coronavirus pandemic. The Americas registered more than 2.4 million cases of the new coronavirus and more than 143,000 deaths from the resulting COVID-19 disease. On May 22, As Brazil’s daily death rate became the world’s highest on Monday, a University of Washington study warned that the country’s total death toll could climb five-fold to 125,000 by early August.</p>
+                        </div>
+                        <div class= "data">
+                            <div>
+                                <p class = "label">Number of cases (World Wide):</p>
+                                <p class = "label_val"> 5.46 million </p>
+                                <p class = "label">Amount of data Collected:</p>
+                                <p class = "label_val"> 1736 <span>GB</span></p>
+                            </div>
+                        </div>
+                        <a class = "instruct" href = "#end"> << scroll or click to continue >> </a>
+                        <!-- <div class = "border-1">b1</div>
+                        <div class = "border-2">b2</div>
+                        <div class = "border-3">b3</div>
+                        <div class = "border-4">b4</div> -->
+                    </div>
+                </section>
+                <section class = "module parallax parallax-12" >
+                    <div class = "end_page" id = "end">
+                        <p class = "titles" style="margin-top: 100px;">Today</p>
+                        <p class = "titles2 mt-2">Cases (World Wide): <span id = "wwlive">10</span></p>
+                        <p class = "titles2 mt-2">Cases (USA): <span id = "usalive">10</span></p>
+                        <p class = "titles2 mt-2">Deaths (World Wide): <span id = "wwlived">10</span></p>
+                        <p class = "titles2 mt-2">Deaths (USA): <span id = "usalived">10</span></p>
+                    </div>
+                </section>
+            </div>
+        </div>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
+        <!-- Third party plugin JS-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+        <!-- Core theme JS-->
+        <!-- <script src="js/script.js"></script> -->
+        <script>
+            var hamburger = document.querySelector(".hamburger");
+            hamburger.addEventListener("click", function() {
+            hamburger.classList.toggle("is-active");
+            });
+        </script>
+    </body>
+</html>

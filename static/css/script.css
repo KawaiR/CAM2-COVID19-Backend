@@ -1,0 +1,1024 @@
+@font-face{
+    font-family: Flenja;
+    src: url("../src/Fonts/Flenja/Flenja-Regular.otf")
+}
+
+
+html, body{
+    background-color: black;
+    height: 100vh;
+    /* overflow-y: hidden; */
+    overscroll-behavior: none;
+    margin:0;
+    font-family: 'Exo 2', sans-serif;  
+}
+
+.container{
+    /*to enable veritical scrolling disable the scroll snap*/
+    scroll-snap-type: x mandatory;
+    scroll-snap-points-x : (repeat(100%));
+    position: relative;
+    overflow-x: scroll;
+    align-items: center;
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+/* titlescreen */
+
+section.module.parallax-1{
+    /* background-color: black; */
+    background-image: url("http://vision.cs.luc.edu/~cv/Covid_19_images/timeline/greetings4.png");
+    /* border: 2px dashed #f69c55; */
+}
+
+
+section.module.parallax-2{
+    background-image: url("http://vision.cs.luc.edu/~cv/Covid_19_images/timeline/wuhan_bridge720.png");
+    /* scroll-snap-align: center; */
+}
+
+section.module.parallax-3{
+    background-image: url("http://vision.cs.luc.edu/~cv/Covid_19_images/timeline/seattle_edit720.png");
+    /* scroll-snap-align: center; */
+}
+
+section.module.parallax-4{
+    background-image: url("http://vision.cs.luc.edu/~cv/Covid_19_images/timeline/tokyo2720.png");
+    /* scroll-snap-align: center; */
+}
+
+section.module.parallax-5{
+    background-image: url("http://vision.cs.luc.edu/~cv/Covid_19_images/timeline/UN_building720.png");
+    /* scroll-snap-align: center; */
+}
+
+section.module.parallax-6{
+    background-image: url("http://vision.cs.luc.edu/~cv/Covid_19_images/timeline/italy720.png");
+    /* scroll-snap-align: center; */
+}
+
+section.module.parallax-7{
+    background-image: url("http://vision.cs.luc.edu/~cv/Covid_19_images/timeline/LA720.png");
+    /* scroll-snap-align: center; */
+}
+
+section.module.parallax-8{
+    background-image: url("http://vision.cs.luc.edu/~cv/Covid_19_images/timeline/NYC720.png");
+    /* scroll-snap-align: center; */
+}
+
+section.module.parallax-9{
+    background-image: url("http://vision.cs.luc.edu/~cv/Covid_19_images/timeline/un-2720.png");
+    /* scroll-snap-align: center; */
+}
+
+section.module.parallax-10{
+    background-image: url("http://vision.cs.luc.edu/~cv/Covid_19_images/timeline/bejing720.png");
+    /* scroll-snap-align: center; */
+}
+
+section.module.parallax-11{
+    background-image: url("http://vision.cs.luc.edu/~cv/Covid_19_images/timeline/chicago720.png");
+    /* scroll-snap-align: center; */
+}
+
+
+
+
+
+section.module.parallax-12{
+    text-align: center;
+    font-size: 100px;
+    color: white;
+    background-image: url("http://vision.cs.luc.edu/~cv/Covid_19_images/timeline/covidscatter720.png");
+
+    background-color: black;
+    /* scroll-snap-align: center; */
+}
+
+
+
+.title_page{
+    text-align: center;
+    /* border: 2px dashed #f69c55; */
+
+    width: 75%;
+    /*centering vert*/
+    position: absolute;
+    top: 50%;
+    /* transform: translateY(-50%); */
+
+    /*centering x*/
+    left: 50%;
+    transform: translate(-50%, -50%); 
+}
+
+.titles{
+    letter-spacing: 1px;
+    font-size: 80px;
+    color: white;
+    /* border: 2px dashed #f69c55; */
+}
+
+.titles2{
+    letter-spacing: 1px;
+    font-size: 18px;
+    color: white;
+    margin-top: -5%;
+}
+
+#directions{
+    font-size: 14px;
+    animation: pulse 2s infinite;
+}
+
+#link1{
+    color: white;
+}
+
+#link2{
+    color: grey;
+    font-size: 12px;
+}
+
+#SS:hover, #SS:active, #SS:visited, #SS:focus{
+    text-decoration: none;
+    animation: pulse2 10s infinite;
+}
+
+#directions:hover, #directions:active, #directions:visited, #directions:focus{
+    text-decoration: None;
+    animation: pulse2 0.5s ease-in;
+}
+
+
+
+#SS{
+    margin-top: 40px;
+    text-decoration: none;
+}
+
+.end_page{
+    text-align: center;
+    /* border: 2px dashed #f69c55; */
+
+    width: 75%;
+    /*centering vert*/
+    position: relative;
+    top: 20%;
+    /* transform: translateY(-50%); */
+
+    /*centering x*/
+    left: 50%;
+    transform: translate(-50%, -50%); 
+}
+
+@media screen and (min-width: 734px){
+    html, body{
+        overflow-y: hidden;
+    }
+
+    .container{
+        overflow-y: auto;
+    }
+
+    section.module.parallax{
+        height: calc(100vh - 0px);
+        width: 100%;
+        flex: 0 0 auto;
+    
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        /* background-size: cover; */
+        background-size: cover;
+        scroll-snap-align: center;
+    }
+
+    #info{
+        position: absolute;
+        /* bottom: -300px; */
+        bottom: -75%;
+        width: 100%;
+        /* padding-bottom: 10%; */
+        /* border: 2px dashed #f69c55; */
+    }
+
+    .information_cont{
+        width: 100vw;
+        height: 100vh;
+        display: grid;
+        /* grid-template-columns: 50%, 10%, 40%;
+        grid-template-rows: 50%, 10%, 40%; */
+        grid-template-columns: repeat(160, calc(100vw/160));
+        grid-template-rows: repeat(40, calc(100vh/40));
+    }
+
+    .page_title{
+        grid-column: 2/ span calc(160 - 82);
+        grid-row: 2/ span calc(40 - 22);
+        color: white;
+        text-shadow: 2px 2px #00000081;
+        /* border: 2px dashed #f69c55; */
+    }
+
+    .page_title div{
+        margin-top: 10vh;
+        margin-bottom: 0%;
+        padding-bottom: 0%;
+        margin-left: 5%;
+    }
+
+    .page_title span{
+        font-size: 3vw;
+    }
+
+    .location{
+        color: white;
+        /* font-size: 50px; */
+        font-size: 4vw;
+        margin: 0px 0px 0px 0px;
+        padding: 0px 0px 0px 0px;
+    }
+
+    .date{
+        color: white;
+        font-size: 6vw;
+        margin: 0px 0px 0px 0px;
+        padding: 0px 0px 0px 0px;
+    }
+
+    .text-1{
+        grid-column: 7/ span calc(160 - 95);
+        grid-row: calc(40 - 19)/ span calc(40 - 22);
+        /* border: 2px dashed #f69c55; */
+    }
+
+    .text-1 p{
+        text-align: center;
+        overflow-y: scroll;
+        color: white;
+        background-color: rgba(0, 0, 0, 0.795);
+        padding-left: 20px;
+        padding-right: 20px;
+        padding-top: 15px;
+        padding-bottom: 15px;
+        max-height: 75%;
+        margin-top: 2vh;
+    }
+
+    .text-2{
+        grid-column: calc(160 - 70)/ span calc(160 - 95);
+        grid-row: calc(40 - 35)/ span calc(40 - 22);
+        /* border: 2px dashed #f69c55; */
+    }
+
+    .text-2 p{
+        text-align: center;
+        overflow-y: scroll;
+        color: white;
+        background-color: rgba(0, 0, 0, 0.795);
+        padding-left: 20px;
+        padding-right: 20px;
+        padding-top: 15px;
+        padding-bottom: 15px;
+        max-height: 75%;
+        margin-top: 4vh;
+    }
+
+    .image5{
+        grid-column: calc(160 - 153 + (70 - 43))/ span calc(160 - 125);
+        grid-row: calc(40 - 20)/ span calc(40 - 32);
+        color: white;
+        border: 2px solid #000000b6;
+        /* margin-bottom: 1vh; */
+        /* border: 2px dashed #f69c55; */
+    }
+
+    .image6{
+        grid-column: calc(160 - 153)/ span calc(160 - 135);
+        grid-row: calc(40 - 19)/ span calc(40 - 34);
+        color: white;
+        border: 2px solid #000000b6;
+        /* margin-bottom: 1vh; */
+        /* border: 2px dashed #f69c55; */
+    }
+
+    .image7{
+        grid-column: calc(160 - 143 + (70 - 43))/ span calc(160 - 135);
+        grid-row: calc(40 - 10)/ span calc(40 - 34);
+        color: white;
+        border: 2px solid #000000b6;
+        /* margin-bottom: 1vh; */
+        /* border: 2px dashed #f69c55; */
+    }
+
+    .image8{
+        grid-column: calc(160 - 153)/ span calc(160 - 125);
+        grid-row: calc(40 - 11)/ span calc(40 - 32);
+        color: white;
+        border: 2px solid #000000b6;
+        /* margin-bottom: 1vh; */
+        /* border: 2px dashed #f69c55; */
+    }
+
+    .image1{
+        grid-column: calc(160 - 43)/ span calc(160 - 125);
+        grid-row: calc(40 - 35)/ span calc(40 - 32);
+        color: white;
+        border: 2px solid #000000b6;
+        /* margin-bottom: 1vh; */
+        /* border: 2px dashed #f69c55; */
+    }
+
+    .image2{
+        grid-column: calc(160 - 70)/ span calc(160 - 135);
+        grid-row: calc(40 - 34)/ span calc(40 - 34);
+        color: white;
+        border: 2px solid #000000b6;
+        /* margin-bottom: 1vh; */
+        /* border: 2px dashed #f69c55; */
+    }
+
+    .image3{
+        grid-column: calc(160 - 33)/ span calc(160 - 135);
+        grid-row: calc(40 - 25)/ span calc(40 - 34);
+        color: white;
+        border: 2px solid #000000b6;
+        /* margin-bottom: 1vh; */
+        /* border: 2px dashed #f69c55; */
+    }
+
+    .image4{
+        grid-column: calc(160 - 70)/ span calc(160 - 125);
+        grid-row: calc(40 - 26)/ span calc(40 - 32);
+        color: white;
+        border: 2px solid #000000b6;
+        /* margin-bottom: 5vh; */
+        /* border: 2px dashed #f69c55; */
+    }
+
+    /* .image_cont{
+        margin-top: 2vh;
+    } */
+
+    .data{
+        grid-column: calc(160 - 80)/span 80;
+        grid-row: calc(40 - 20)/span 20;
+        color: white;
+        text-shadow: 2px 2px #00000081;
+        /* border: 2px dashed #f69c55; */
+    }
+
+    .data div{
+        margin-top: 12%;
+        margin-right: 15%; 
+    }
+
+
+    .label{
+        text-align: right;
+        /* font-size: 20px; */
+        font-size: calc(2vh);
+        padding-top: 0%;
+        padding-bottom: 0%;
+        margin-top: 0%;
+        margin-bottom: 0%;
+        text-shadow: 0.1vh 0.1vh 2px blue
+    }
+
+    .label_val{
+        text-align: right;
+        font-family: 'Flenja', serif;
+        /* font-size: 50px; */
+        font-size: calc(9vh);
+        padding-top: 0%;
+        padding-bottom: 0%;
+        margin-top: 0%;
+        margin-bottom: 0%;
+        text-shadow: 2px 2px 0px blue;
+    }
+
+    .label_val span{
+        font-size: 35px;
+        text-shadow: 2px 2px 0px blue;
+    }
+
+    .instruct{
+        text-align: center;
+        grid-column: calc(160 - 95)/ span calc(160 - 125);
+        grid-row: calc(40 - 2)/ span calc(40 - 39);
+        color: white;
+        font-size: 15px;
+        /* border: 2px dashed #f69c55; */
+        animation: pulse 2s infinite;
+    }
+
+    .instruct:hover, .instruct:active, .instruct:visited, .instruct:focus{
+        color: white;
+        transform: scale(1.1);
+        text-decoration:none;
+        animation: pulse2 0.1s ease-in;
+        /* border: 2px dashed #f69c55; */
+    }
+
+
+    /*for debugging*/
+    /* .border-1{
+        grid-column: 1/ span 1;
+        grid-row:  1/span 1;
+        color: white;
+        border: 2px dashed #ff0000;
+    }
+
+    .border-2{
+        grid-column: 160/span 1;
+        grid-row:  1/span 1;
+        color: white;
+        border: 2px dashed #ff0000;
+    }
+
+    .border-3{
+        grid-column: 1/ span 1;
+        grid-row:  end 39/end 40;
+        color: white;
+        border: 2px dashed #ff0000;
+    }
+
+    .border-4{
+        grid-column: 160/span 1;
+        grid-row:  end 39/end 40;
+        color: white;
+        border: 2px dashed #ff0000;
+    } */
+
+
+}
+
+
+@media screen and (max-width: 734px){
+    html, body{
+        overflow-y: hidden;
+    }
+
+    .container{
+        overflow-y: hidden;
+    }
+    
+    section.module.parallax{
+        height: calc(100vh - 0px);
+        width: 100%;
+        flex: 0 0 auto;
+
+        overflow-y: auto;
+    
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        scroll-snap-align: center;
+    }
+
+    .information_cont{
+        display: block;
+    }
+
+    .page_title{
+        grid-column: 2/ span calc(160 - 82);
+        grid-row: 2/ span calc(40 - 22);
+        color: white;
+        text-shadow: 2px 2px #00000081;
+        /* border: 2px dashed #f69c55; */
+    }
+
+    .page_title div{
+        margin-top: 10vh;
+        margin-bottom: 0%;
+        padding-bottom: 0%;
+        margin-left: 5%;
+    }
+
+    .page_title span{
+        font-size: 3vw;
+    }
+
+    .location{
+        color: white;
+        /* font-size: 50px; */
+        font-size: 4vw;
+        margin: 0px 0px 0px 0px;
+        padding: 0px 0px 0px 0px;
+    }
+
+    .date{
+        color: white;
+        font-size: 6vw;
+        margin: 0px 0px 0px 0px;
+        padding: 0px 0px 0px 0px;
+    }
+
+    .text-1 p{
+        text-align: center;
+        overflow-y: scroll;
+        color: white;
+        background-color: rgba(0, 0, 0, 0.63);
+        padding-left: 20px;
+        padding-right: 20px;
+        padding-top: 15px;
+        padding-bottom: 15px;
+        max-height: 75%;
+        margin-top: 2vh;
+        margin-left: 1vh;
+        margin-right: 1vh;
+    }
+
+    .text-2 p{
+        text-align: center;
+        overflow-y: scroll;
+        color: white;
+        background-color: rgba(0, 0, 0, 0.63);
+        padding-left: 20px;
+        padding-right: 20px;
+        padding-top: 15px;
+        padding-bottom: 15px;
+        max-height: 75%;
+        margin-top: 4vh;
+        margin-left: 1vh;
+        margin-right: 1vh;
+    }
+
+
+    .data{
+        color: white;
+        text-shadow: 2px 2px #00000081;
+        
+        /* border: 2px dashed #f69c55; */
+    }
+
+    .data div{
+        background-color: rgba(0, 0, 0, 0.527);
+        margin-top: 7%;
+        margin-right: 10%;
+        margin-left: 10%;
+        padding-top: 5%;
+        padding-right: 5%;
+        padding-left: 5%;
+    }
+
+    .label{
+        text-align: right;
+        /* font-size: 20px; */
+        font-size: 15px;
+        padding-top: 0%;
+        padding-bottom: 0%;
+        margin-top: 0%;
+        margin-bottom: 0%;
+    }
+
+    .label_val{
+        text-align: right;
+        font-family: 'Flenja', serif;
+        /* font-size: 50px; */
+        font-size: 50px;
+        padding-top: 0%;
+        padding-bottom: 2%;
+        margin-top: 0%;
+        margin-bottom: 0%;
+    }
+
+    .label_val span{
+        font-size: 20px;
+    }
+
+    #info{
+        position: absolute;
+        /* bottom: -300px; */
+        bottom: -70%;
+        width: 100%;
+        /* padding-bottom: 10%; */
+        /* border: 2px dashed #f69c55; */
+    }
+
+    .instruct{
+        /* margin-top: 30%;
+        margin-bottom: 30%;
+        text-align: center;
+        color: white;
+        font-size: 15px;
+        border: 2px dashed #f69c55;
+        animation: pulse 2s infinite;  */
+        visibility: hidden;
+    } 
+
+    /* .instruct:hover, .instruct:active, .instruct:visited, .instruct:focus{
+        color: white;
+        transform: scale(1.1);
+        text-decoration:none;
+        animation: pulse2 0.1s ease-in;
+        border: 2px dashed #f69c55; 
+    } */
+    .data{
+        padding-bottom: 100px;
+    }
+}
+
+/* @media screen and (max-width: 375px){
+    html, body{
+        overflow-y: hidden;
+    }
+
+    .container{
+        overflow-y: hidden;
+    }
+    
+    section.module.parallax{
+        height: calc(100vh - 0px);
+        width: 100%;
+        flex: 0 0 auto;
+    
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        scroll-snap-align: center;
+    }
+
+    .information_cont{
+        display: flex;
+    }
+    
+    .column1 {
+        height: 100vh;
+        flex:55%;
+    }
+    
+    .column2 {
+        height: 100vh;
+        flex:45%;
+    }
+
+} */
+
+
+.navbar-toggler:focus {
+    outline: 0;
+}
+.navbar-nav > .active {
+    color : white!important;
+}
+.navbar-nav > .active a{
+  color : white;
+}
+.nav-item > a:hover {
+    color : white!important;
+    text-decoration: underline;
+}
+ul li{
+  list-style:none;
+  margin: 10px
+}
+
+.navbar-custom {
+  background-color: white;
+}
+
+
+#bg {
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+    padding: 0px;
+    /* Preserve aspet ratio */
+    min-width: 100%;
+    min-height: 100%;
+}
+
+.navbar-color-changer{
+    background-color: transparent;
+    backdrop-filter: blur(5px);
+}
+
+@media(max-width: 767px)
+{
+    .navbar-color-changer{
+        background-color: #1b1b1b !important;
+    }
+    .prep{
+        padding-top:10px; 
+        font-size: 50px;
+    }
+}
+
+@media screen and (max-width: 734px){
+
+}
+
+
+/* @keyframes pulse {
+	0% {
+		transform: scale(0.95);
+
+	}
+
+	70% {
+		transform: scale(1);
+
+	}
+
+	100% {
+		transform: scale(0.95);
+
+    }
+    
+} */
+
+
+@keyframes pulse {
+	0% {
+		transform: scale(0.90);
+		/* box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.7); */
+    }
+    
+
+	60% {
+		transform: scale(1.0);
+		/* box-shadow: 0 0 0 10px rgba(0, 0, 0, 0); */
+    }
+    
+
+	100% {
+		transform: scale(0.90);
+		/* box-shadow: 0 0 0 0 rgba(0, 0, 0, 0); */
+    }
+    
+}
+
+@keyframes pulse2 {
+	0% {
+		transform: scale(1);
+		/* box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.7); */
+    }
+    
+
+	70% {
+		transform: scale(1.1);
+		/* box-shadow: 0 0 0 0 rgba(0, 0, 0, 0); */
+    }
+
+    100% {
+		transform: scale(1.0);
+		/* box-shadow: 0 0 0 0 rgba(0, 0, 0, 0); */
+    }
+    
+}
+
+
+/* page set 1 */
+.image1.image-1{
+    background-image: url("http://vision.cs.luc.edu/~cv/Covid_19_images/timeline/full_contrast/china2.png");
+    background-size: cover;
+    background-position: center;
+}
+
+.image2.image-2{
+    background-image: url("http://vision.cs.luc.edu/~cv/Covid_19_images/timeline/full_contrast/china1.png");
+    background-size: cover;
+    background-position: center;
+}
+
+.image3.image-3{
+    background-image: url("http://vision.cs.luc.edu/~cv/Covid_19_images/timeline/full_contrast/china4.png");
+    background-size: cover;
+    background-position: center;
+}
+
+.image4.image-4{
+    background-image: url("http://vision.cs.luc.edu/~cv/Covid_19_images/timeline/full_contrast/china3.png");
+    background-size: cover;
+    background-position: center;
+}
+
+.image5.image-1{
+    background-image: url("http://vision.cs.luc.edu/~cv/Covid_19_images/timeline/full_contrast/usa2.png");
+    background-size: cover;
+    background-position: center;
+}
+
+.image6.image-2{
+    background-image: url("http://vision.cs.luc.edu/~cv/Covid_19_images/timeline/full_contrast/usa4.png");
+    background-size: cover;
+    background-position: center;
+}
+
+.image7.image-3{
+    background-image: url("http://vision.cs.luc.edu/~cv/Covid_19_images/timeline/full_contrast/usa3.png");
+    background-size: cover;
+    background-position: center;
+}
+
+.image8.image-4{
+    background-image: url("http://vision.cs.luc.edu/~cv/Covid_19_images/timeline/full_contrast/usa1.png");
+    background-size: cover;
+    background-position: center;
+}
+
+
+/* page set 2 */
+.image1.image-5{
+    background-image: url("http://vision.cs.luc.edu/~cv/Covid_19_images/timeline/full_contrast/japan4.png");
+    background-size: cover;
+    background-position: center;
+}
+
+.image2.image-6{
+    background-image: url("http://vision.cs.luc.edu/~cv/Covid_19_images/timeline/full_contrast/japan1.png");
+    background-size: cover;
+    background-position: center;
+}
+
+.image3.image-7{
+    background-image: url("http://vision.cs.luc.edu/~cv/Covid_19_images/timeline/full_contrast/japan2.png");
+    background-size: cover;
+    background-position: center;
+}
+
+.image4.image-8{
+    background-image: url("http://vision.cs.luc.edu/~cv/Covid_19_images/timeline/full_contrast/japan3.png");
+    background-size: cover;
+    background-position: center;
+}
+
+.image5.image-5{
+    background-image: url("http://vision.cs.luc.edu/~cv/Covid_19_images/timeline/full_contrast/un9.png");
+    background-size: cover;
+    background-position: center;
+}
+
+.image6.image-6{
+    background-image: url("http://vision.cs.luc.edu/~cv/Covid_19_images/timeline/full_contrast/un10.png");
+    background-size: cover;
+    background-position: center;
+}
+
+.image7.image-7{
+    background-image: url("http://vision.cs.luc.edu/~cv/Covid_19_images/timeline/full_contrast/un11.png");
+    background-size: cover;
+    background-position: center;
+}
+
+.image8.image-8{
+    background-image: url("http://vision.cs.luc.edu/~cv/Covid_19_images/timeline/full_contrast/un12.png");
+    background-size: cover;
+    background-position: center;
+}
+
+
+/* page set 3 */
+.image1.image-9{
+    background-image: url("http://vision.cs.luc.edu/~cv/Covid_19_images/timeline/full_contrast/italy2.png");
+    background-size: cover;
+    background-position: center;
+}
+
+.image2.image-10{
+    background-image: url("http://vision.cs.luc.edu/~cv/Covid_19_images/timeline/full_contrast/italy1.png");
+    background-size: cover;
+    background-position: center;
+}
+
+.image3.image-11{
+    background-image: url("http://vision.cs.luc.edu/~cv/Covid_19_images/timeline/full_contrast/italy4.png");
+    background-size: cover;
+    background-position: center;
+}
+
+.image4.image-12{
+    background-image: url("http://vision.cs.luc.edu/~cv/Covid_19_images/timeline/full_contrast/italy3.png");
+    background-size: cover;
+    background-position: center;
+}
+
+.image5.image-9{
+    background-image: url("http://vision.cs.luc.edu/~cv/Covid_19_images/timeline/full_contrast/usa7.png");
+    background-size: cover;
+    background-position: center;
+}
+
+.image6.image-10{
+    background-image: url("http://vision.cs.luc.edu/~cv/Covid_19_images/timeline/full_contrast/usa6.png");
+    background-size: cover;
+    background-position: center;
+}
+
+.image7.image-11{
+    background-image: url("http://vision.cs.luc.edu/~cv/Covid_19_images/timeline/full_contrast/usa8.png");
+    background-size: cover;
+    background-position: center;
+}
+
+.image8.image-12{
+    background-image: url("http://vision.cs.luc.edu/~cv/Covid_19_images/timeline/full_contrast/usa5.png");
+    background-size: cover;
+    background-position: center;
+}
+
+
+/* page set 4 */
+.image1.image-13{
+    background-image: url("http://vision.cs.luc.edu/~cv/Covid_19_images/timeline/full_contrast/usa9.png");
+    background-size: cover;
+    background-position: center;
+}
+
+.image2.image-14{
+    background-image: url("http://vision.cs.luc.edu/~cv/Covid_19_images/timeline/full_contrast/usa10.png");
+    background-size: cover;
+    background-position: center;
+}
+
+.image3.image-15{
+    background-image: url("http://vision.cs.luc.edu/~cv/Covid_19_images/timeline/full_contrast/usa11.png");
+    background-size: cover;
+    background-position: center;
+}
+
+.image4.image-16{
+    background-image: url("http://vision.cs.luc.edu/~cv/Covid_19_images/timeline/full_contrast/usa12.png");
+    background-size: cover;
+    background-position: center;
+}
+
+.image5.image-13{
+    background-image: url("http://vision.cs.luc.edu/~cv/Covid_19_images/timeline/full_contrast/un1.png");
+    background-size: cover;
+    background-position: center;
+}
+
+.image6.image-14{
+    background-image: url("http://vision.cs.luc.edu/~cv/Covid_19_images/timeline/full_contrast/un2.png");
+    background-size: cover;
+    background-position: center;
+}
+
+.image7.image-15{
+    background-image: url("http://vision.cs.luc.edu/~cv/Covid_19_images/timeline/full_contrast/un3.png");
+    background-size: cover;
+    background-position: center;
+}
+
+.image8.image-16{
+    background-image: url("http://vision.cs.luc.edu/~cv/Covid_19_images/timeline/full_contrast/un4.png");
+    background-size: cover;
+    background-position: center;
+}
+
+/* page set 5 */
+.image1.image-17{
+    background-image: url("http://vision.cs.luc.edu/~cv/Covid_19_images/timeline/full_contrast/un5.png");
+    background-size: cover;
+    background-position: center; 
+    /* color: rgb(53, 53, 180); */
+}
+
+.image2.image-18{
+    background-image: url("http://vision.cs.luc.edu/~cv/Covid_19_images/timeline/full_contrast/un6.png");
+    background-size: cover;
+    background-position: center;
+}
+
+.image3.image-19{
+    background-image: url("http://vision.cs.luc.edu/~cv/Covid_19_images/timeline/full_contrast/un7.png");
+    background-size: cover;
+    background-position: center;
+}
+
+.image4.image-20{
+    background-image: url("http://vision.cs.luc.edu/~cv/Covid_19_images/timeline/full_contrast/un8.png");
+    background-size: cover;
+    background-position: center;
+}
+
+.image5.image-17{
+    background-image: url("http://vision.cs.luc.edu/~cv/Covid_19_images/timeline/full_contrast/usa15.png");
+    background-size: cover;
+    background-position: center;
+}
+
+.image6.image-18{
+    background-image: url("http://vision.cs.luc.edu/~cv/Covid_19_images/timeline/full_contrast/usa13.png");
+    background-size: cover;
+    background-position: center;
+}
+
+.image7.image-19{
+    background-image: url("http://vision.cs.luc.edu/~cv/Covid_19_images/timeline/full_contrast/usa14.png");
+    background-size: cover;
+    background-position: center;
+}
+
+.image8.image-20{
+    background-image: url("http://vision.cs.luc.edu/~cv/Covid_19_images/timeline/full_contrast/usa16.png");
+    background-size: cover;
+    background-position: center;
+}

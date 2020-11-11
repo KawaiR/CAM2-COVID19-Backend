@@ -39,6 +39,10 @@ def research():
 def members():
   return render_template("members.html")
 
+@app.route('/timeline')
+def timeline():
+  return render_template("timeline.html")
+
 # This function get the POST request and return the plot in format of html
 @app.route('/query', methods = ['POST'])
 def query():
