@@ -35,6 +35,10 @@ def analysis():
 def research():
   return render_template("research.html")
 
+@app.route('/members')
+def members():
+  return render_template("members.html")
+
 # This function get the POST request and return the plot in format of html
 @app.route('/query', methods = ['POST'])
 def query():
