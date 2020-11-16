@@ -68,7 +68,6 @@ def generate_plot(country=None, state=None, date1=None, date2=None, date3=None, 
     useful_data['date_keys'] = '2020-' + useful_data['date_keys'].astype(str)
     useful_data['date_keys'] = pd.to_datetime(useful_data['date_keys'])
     useful_data = useful_data.loc[(useful_data['date_keys'] >= date1) & (useful_data['date_keys'] <= date2)]
-    print(useful_data.head())
     data_points = len(useful_data)
 
     start_samples = []
@@ -81,6 +80,8 @@ def generate_plot(country=None, state=None, date1=None, date2=None, date3=None, 
 
     for i in range(data_points):
         plot_dates.append(np.array(useful_data[start_samples[i]:start_samples[i]+1]["date_keys"])[0])
+
+    print(plot_dates)
 
     daily_counts = np.zeros((data_points))
 
@@ -139,26 +140,69 @@ def generate_plot(country=None, state=None, date1=None, date2=None, date3=None, 
         daily_counts_people[i] = np.max(np.sum(data_to_use[plot_cams], axis=1))
 
 
-    ax.set(title=place_to_use)
+    ax.set(title="Scatterplot of People Count vs Vehicle Count in " + place_to_use)
 
     # colors, markers=color_list(plot_dates[1:-1], date1=date1, date2=date2, date3=date3, date4=date4)
 
     for i in range(len(daily_counts)):
         ax.scatter(daily_counts[i], daily_counts_people[i], color= "b", marker= "o", s=3)
 
-    
+
     ax.set_xlabel('Vehicle count')
     ax.set_ylabel('People count')
+
+
+    # Add legends
+    dates = []
+    dates_str = []
+    for date in ['2020-05-01', '2020-06-01', '2020-07-01']:
+        if len(useful_data.loc[(useful_data['date_keys'] == date)]) > 0:
+            dates.append(np.datetime64(date))
+            dates_str.append(date)
+    print(dates)
+    if len(dates) == 3:
+        colors, markers=color_list(plot_dates[1:-1], date1=dates[0], date2=dates[1], date3=dates[2])
+    elif len(dates) == 2:
+        colors, markers=color_list(plot_dates[1:-1], date1=dates[0], date2=dates[1])
+    elif len(dates) == 1:
+        colors, markers=color_list(plot_dates[1:-1], date1=dates[0])
+
+    if len(dates) != 0:
+        legend_elements = [Line2D([0], [0], marker='o', color='w', label='Scatter',
+                            markerfacecolor='r', markersize=9),
+                        Line2D([0], [0], marker='o', color='w', label='Scatter',
+                            markerfacecolor='g', markersize=9),
+                        Line2D([0], [0], marker='o', color='w', label='Scatter',
+                            markerfacecolor='b', markersize=9),
+                        Line2D([0], [0], marker='o', color='w', label='Scatter',
+                            markerfacecolor='black', markersize=9),
+                        Line2D([0], [0], marker='o', color='w', label='Scatter',
+                            markerfacecolor='darkorchid', markersize=9),
+                        ]
+
+        legend = []
+        prevdate = date1.replace("2020-", "")
+        for each in dates_str:
+            if each!=None:
+                each = each.replace("2020-", "")
+                legend+=[str(prevdate + '-- ' + each)]
+                prevdate=each
+
+        legend+=[str(prevdate + '-- ' + date2.replace("2020-", ""))]
+
+        ax.legend(legend_elements, legend)
 
 
     plt.title(place_to_use)
     plt.xlabel('Vehicle count')
     plt.ylabel('People count')
-    fig.set_size_inches(5, 5)
+    #fig.set_size_inches(2, 1.5)
 
 
     fig1, ax1 = plt.subplots()
     ax1.hist(daily_counts)
+    ax1.set(title="Time Series Histogram of People and Vehicle Count in " + place_to_use)
+    #fig1.set_size_inches(2, 1.5)
 
     return mpld3.fig_to_html(fig), mpld3.fig_to_html(fig1)
 

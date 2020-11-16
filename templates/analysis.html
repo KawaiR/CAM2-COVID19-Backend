@@ -55,8 +55,8 @@
             <div class="container">
                 <h3 class="mb-0" style="font-family: 'Exo 2', sans-serif; color: #1B1B1B; font-weight: 400;">Vehicle and People Counts</h3>
                 <br>
-                <p class="text-black-50 mb-5" style="margin-top: -10px;">In the past summer, our research team collected and analyzed data from over 10,000 worldwide cameras. We use number of vehicles and crowd sizes as indication of whether people are following social distancing guidelines. Specifically, we focused on 9,752 cameras to analyze traffic and 3,254 cameras to count people. Below are histograms of vehicle and people counts in selected countries from April 1, 2020 to August 1, 2020.</p>
-                
+                <p class="text-black-50 mb-5" style="margin-top: -10px;">In the past summer, our research team collected and analyzed data from over 10,000 worldwide cameras. We use number of vehicles and crowd sizes as indication of whether people are following social distancing guidelines. Specifically, we focused on 9,752 cameras to analyze traffic and 3,254 cameras to count people. Below are the plots we have for people and vehicle counts. </p>
+                <p class="text-black-50 mb-5" style="margin-top: -10px;">The scatter plots are designed to show the correlation between vehicle and people counts from select countries on a monthly basis starting from April 2020. Different colors and markers represent different date ranges indicated in the legend of each plot to reflect the different months following the outbreak of the pandemic. You are welcome to use the feature below to plot subsets of the data we collected and explore the trends shown. Next to the scatter plot, you will find a double bar histogram presenting the vehicle and people maximums. </p>
                 <!--This p includes all the display of generating a plot-->
                 <p>
                     <!--Slide bar value display-->
@@ -106,9 +106,9 @@
                     </select>
                     </div>
                     <label for="start">Start Date:</label>
-                    <input type="date" id="start" name="start" value="2020-05-01" min={{ min_date }} max={{ max_date }}>
+                    <input type="date" id="start" name="start" value="2020-04-01" min={{ min_date }} max={{ max_date }}>
                     <label for="end">End Date:</label>
-                    <input type="date" id="end" name="end" value="2020-07-01" min={{ min_date }} max={{ max_date }}>
+                    <input type="date" id="end" name="end" value="2020-07-31" min={{ min_date }} max={{ max_date }}>
                     </div>
                     <br>
                     <!--View plot button-->
