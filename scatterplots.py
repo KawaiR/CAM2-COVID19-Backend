@@ -10,6 +10,8 @@ from matplotlib.lines import Line2D
 from us_states import us_state_abbrev
 import argparse
 import mpld3
+import math
+import datetime
 
 def color_list(plot_dates, date1=None, date2=None, date3=None, date4=None):
     if (date1):
@@ -81,7 +83,7 @@ def generate_plot(country=None, state=None, date1=None, date2=None, date3=None, 
     for i in range(data_points):
         plot_dates.append(np.array(useful_data[start_samples[i]:start_samples[i]+1]["date_keys"])[0])
 
-    print(plot_dates)
+
 
     daily_counts = np.zeros((data_points))
 
@@ -144,9 +146,6 @@ def generate_plot(country=None, state=None, date1=None, date2=None, date3=None, 
 
     # colors, markers=color_list(plot_dates[1:-1], date1=date1, date2=date2, date3=date3, date4=date4)
 
-    for i in range(len(daily_counts)):
-        ax.scatter(daily_counts[i], daily_counts_people[i], color= "b", marker= "o", s=3)
-
 
     ax.set_xlabel('Vehicle count')
     ax.set_ylabel('People count')
@@ -159,13 +158,18 @@ def generate_plot(country=None, state=None, date1=None, date2=None, date3=None, 
         if len(useful_data.loc[(useful_data['date_keys'] == date)]) > 0:
             dates.append(np.datetime64(date))
             dates_str.append(date)
-    print(dates)
     if len(dates) == 3:
         colors, markers=color_list(plot_dates[1:-1], date1=dates[0], date2=dates[1], date3=dates[2])
     elif len(dates) == 2:
         colors, markers=color_list(plot_dates[1:-1], date1=dates[0], date2=dates[1])
     elif len(dates) == 1:
         colors, markers=color_list(plot_dates[1:-1], date1=dates[0])
+    else:
+        colors, markers=color_list(plot_dates[1:-1])
+
+
+    for i in range(len(colors)):
+        ax.scatter(daily_counts[i], daily_counts_people[i], color= colors[i], marker= markers[i], s=3)
 
     if len(dates) != 0:
         legend_elements = [Line2D([0], [0], marker='o', color='w', label='Scatter',
@@ -192,17 +196,34 @@ def generate_plot(country=None, state=None, date1=None, date2=None, date3=None, 
 
         ax.legend(legend_elements, legend)
 
+    #plt.xlabel('Vehicle count')
+    #plt.ylabel('People count')
+    fig.set_size_inches(5, 5)
 
-    plt.title(place_to_use)
-    plt.xlabel('Vehicle count')
-    plt.ylabel('People count')
-    #fig.set_size_inches(2, 1.5)
-
-
+    bins = math.floor(len(daily_counts)/7)
+    vehicle_by_week = [sum(daily_counts[i:i+7]) for i in range(bins)]
+    people_by_week = [sum(daily_counts_people[i:i+7]) for i in range(bins)]
     fig1, ax1 = plt.subplots()
-    ax1.hist(daily_counts)
+
+    ax1.bar(np.arange(bins), vehicle_by_week, align='center', alpha=0.5, color='b', label='vehicle')
+        
+    ax1.bar(np.arange(bins), people_by_week, align='center', alpha=0.5, color='g', label='people')
+
+    """
+    ticks = []
+    for i in range(bins):
+        week = datetime.datetime.strptime(date1, '%Y-%m-%d') + datetime.timedelta(days=i*7)
+        ticks.append(week.strptime(date, '%Y-%m-%d'))
+    """
+
+    plt.xticks(np.arange(bins), range(bins))
+    plt.ylabel('Counts')
+    plt.xlabel('Week')
+    plt.legend(loc='upper left')
+    print(daily_counts)
+    print(vehicle_by_week)
     ax1.set(title="Time Series Histogram of People and Vehicle Count in " + place_to_use)
-    #fig1.set_size_inches(2, 1.5)
+    fig1.set_size_inches(5, 5)
 
     return mpld3.fig_to_html(fig), mpld3.fig_to_html(fig1)
 
