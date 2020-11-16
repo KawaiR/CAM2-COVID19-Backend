@@ -146,7 +146,7 @@ def generate_plot(country=None, state=None, date1=None, date2=None, date3=None, 
     for i in range(len(daily_counts)):
         ax.scatter(daily_counts[i], daily_counts_people[i], color= "b", marker= "o", s=3)
 
-
+    
     ax.set_xlabel('Vehicle count')
     ax.set_ylabel('People count')
 
@@ -155,7 +155,12 @@ def generate_plot(country=None, state=None, date1=None, date2=None, date3=None, 
     plt.xlabel('Vehicle count')
     plt.ylabel('People count')
     fig.set_size_inches(5, 5)
-    return mpld3.fig_to_html(fig)
+
+
+    fig1, ax1 = plt.subplots()
+    ax1.hist(daily_counts)
+
+    return mpld3.fig_to_html(fig), mpld3.fig_to_html(fig1)
 
 
 

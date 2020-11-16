@@ -129,7 +129,11 @@
                         </div>
                     </div>
                   <!--Container for the plot-->
-                  <div id="container" style="width:700px; height:500px;"></div>
+                <div style="width:800px;">
+                    <div id="container" style="width:300px; float:left;"></div>
+                    <div id="container2" style="width:300px; float:right;"></div>
+                </div>
+                <div style="clear: both;"></div>
                 </p>
 
                 <!-- A paragraph of vehicle detection-->
@@ -173,6 +177,7 @@
             $("#query").click(function() {  
                 $("#loading-div-background").show();
                 $("#container").hide();
+                $("#container2").hide();
                 /* Get value of slide bar */
                 var country = document.getElementById("country").value;
                 var state = document.getElementById("state").value;
@@ -186,12 +191,15 @@
                 contentType: "application/json; charset=utf-8",
                 url: "/query",
                 data: JSON.stringify(qu),
-                dataType: "html",
+                dataType: "json",
                 /* function if the request succeeds */
                 success: function (data) {   
-                $("#container").html(data);   
+                $("#container").html(data.scatter);   
                 $("#loading-div-background").hide(); 
                 $("#container").show();
+
+                $("#container2").html(data.hist);    
+                $("#container2").show();
                 },
                 /* function if the request fails */
                 error: function (e) {

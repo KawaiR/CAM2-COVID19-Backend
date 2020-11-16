@@ -50,8 +50,12 @@ def timeline():
 def query():
   # Get data from ajax request
   data = json.loads(request.data)
-  plt_html = plot(data["country"], data["state"], data["start"], data["end"])
-  return plt_html
+  scatter, hist = plot(data["country"], data["state"], data["start"], data["end"])
+  data = {}
+  data['scatter'] = scatter
+  data['hist'] = hist
+  json_data = json.dumps(data)
+  return json_data
 
 
 if __name__ == '__main__':
