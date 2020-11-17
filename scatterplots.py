@@ -49,7 +49,8 @@ def generate_plot(country=None, state=None, date1=None, date2=None, date3=None, 
         short_form = countries.get(country, 'Unknown code')
         place_to_use = country
     elif state:
-        short_form = us_state_abbrev[state]
+        #short_form = us_state_abbrev[state]
+        short_form = state
         place_to_use = state
 
 
@@ -196,8 +197,6 @@ def generate_plot(country=None, state=None, date1=None, date2=None, date3=None, 
 
         ax.legend(legend_elements, legend)
 
-    #plt.xlabel('Vehicle count')
-    #plt.ylabel('People count')
     fig.set_size_inches(5, 5)
 
     bins = math.floor(len(daily_counts)/7)
@@ -220,8 +219,6 @@ def generate_plot(country=None, state=None, date1=None, date2=None, date3=None, 
     plt.ylabel('Counts')
     plt.xlabel('Week')
     plt.legend(loc='upper left')
-    print(daily_counts)
-    print(vehicle_by_week)
     ax1.set(title="Time Series Histogram of People and Vehicle Count in " + place_to_use)
     fig1.set_size_inches(5, 5)
 
