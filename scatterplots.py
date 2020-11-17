@@ -204,9 +204,10 @@ def generate_plot(country=None, state=None, date1=None, date2=None, date3=None, 
     people_by_week = [sum(daily_counts_people[i:i+7]) for i in range(bins)]
     fig1, ax1 = plt.subplots()
 
-    ax1.bar(np.arange(bins), vehicle_by_week, align='center', alpha=0.5, color='b', label='vehicle')
+    bar_width = 0.35
+    ax1.bar(np.arange(bins), vehicle_by_week, bar_width, align='center', alpha=0.5, color='b', label='vehicle')
         
-    ax1.bar(np.arange(bins), people_by_week, align='center', alpha=0.5, color='g', label='people')
+    ax1.bar(np.arange(bins) + bar_width, people_by_week, bar_width, align='center', alpha=0.5, color='g', label='people')
 
     """
     ticks = []
