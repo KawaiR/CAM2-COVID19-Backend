@@ -83,7 +83,7 @@
                         <option value ="United States" selected="selected">United States</option>
                     </select>
                     <script>
-                        document.getElementById("country").onclick = function() { 
+                        document.getElementById("country").onchange = function() { 
                             if (country.value == "United States") {
                                 document.getElementById("state-selector").style.display = "block";
                             } else {
@@ -172,23 +172,15 @@
                     </div>
                   <!--Container for the plot-->
                   
-                  <div style="width:800px;">
-                    <div id="container" style="width:300px; float:left;"></div>
-                    <div id="container2" style="width:300px; float:right;"></div>
+                  <div class="container" style="max-width: 800px;">
+                    <div class="container" id="container" style="width:300px; float:left;"></div>
+                    <div class="container" id="container2" style="width:300px; float:right;"></div>
                 </div>
                 <div style="clear: both;"></div>
 
                 </p>
 
                 <!-- A paragraph of vehicle detection-->
-                <h3 class="mb-0" style="font-family: 'Exo 2', sans-serif; color: #1B1B1B; font-weight: 400;">Violation Detection</h3>
-                <br>
-                    <p class="text-black-50 mb-5" style="margin-top: -10px;">The following is an example picture of our violation detection model. Red and green bounding boxes represent people violating social distancing guidelines and following them.</p>
-                <div class="row">
-                    <img src="{{url_for('static', filename='img/violation.png')}}" style="width:auto; max-width:100%; height:auto;">
-                </div>
-                <hr>
-                <br>
                 <!-- /.row -->
             </div>
         </section>

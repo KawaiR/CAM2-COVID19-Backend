@@ -11,7 +11,9 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import time
 from tqdm import tqdm
+from numba import njit, jit 
 
+@jit
 def get_count(df, mask, key):
 
     cols = {key: np.max}
@@ -21,7 +23,7 @@ def get_count(df, mask, key):
     red["date"] = red["date"].apply(lambda x: dt.strptime(x, "%Y-%m-%d"))
     return red, max(red["date"]), dt.strptime("2020-03-30", "%Y-%m-%d")
 
-
+@jit
 def ungroup(df, values, col):
     df_masks = {}
     cols = {col: np.max}
@@ -48,7 +50,7 @@ def ungroup(df, values, col):
     dates = pd.DataFrame(dates, columns=['date_keys'])
     return df_masks, dates
 
-
+@jit
 def construct_new(data, dates, col="pedestrian_count"):
     frames = []
     for key in data.keys():
@@ -59,7 +61,7 @@ def construct_new(data, dates, col="pedestrian_count"):
     datafin = pd.concat(frames, axis=1)
     return data, datafin
 
-
+@jit
 def load_csv(filen, col):
     """
     load the csv and flatten all ids into individual columns
@@ -100,8 +102,8 @@ def load_csv(filen, col):
     print(f" num cams check: {len(flattened.columns)}")
     return data, keys, dates, flattened
 
-
-def plot(frame, index_col="date_keys", plot_list=None, fill_na_value=None, height=10, aspect=2, kind='scatter', alpha=0.5):
+@jit
+def plot(frame, index_col="date_keys", plot_list=None, fill_na_value=None, height=20, aspect=21/20, kind='scatter', alpha=0.5):
     '''
     quick plotting function to plot the data frame as a line or scatter plot if data needs to plotted the same way as example
 
@@ -146,7 +148,7 @@ def plot(frame, index_col="date_keys", plot_list=None, fill_na_value=None, heigh
     g.set_titles("cams vs dates")
     return g
 
-
+@jit
 def get_plot_cams_list(people_df, city=None, country=None, state=None):
     if country:
         return list(set(people_df.loc[people_df['country'] == country, 'cam_id']))
@@ -155,10 +157,11 @@ def get_plot_cams_list(people_df, city=None, country=None, state=None):
     elif state:
         return list(set(people_df.loc[people_df['state'] == state, 'cam_id']))
 
-
+@jit
 def get_max_of_subset(colap, list_cams):
     return list(colap.max(colap[list_cams]))
 
+@jit
 def visualize(ax, place_to_use, short_form, useful_dates, colap_vehicle=None, colap_people=None, data_vehicles=None, data_people=None,  disclude_vehicles=None, disclude_people=None):
 
     if colap_vehicle is not None:
