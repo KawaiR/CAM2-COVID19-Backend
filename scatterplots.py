@@ -25,9 +25,10 @@ def color_list(plot_dates, date1=None, date2=None, date3=None, date4=None):
     
     if date4:
         return ["r"]*(point1) + ["g"]*(point2 - point1) + ["b"]*(point3-point2) + ["black"]*(point4-point3) + ["darkorchid"]*(len(plot_dates)-point4),  ['x']*(point1)+['o']*((point2) - point1) + ['*']*(point3 - point2) + ['+']*(point4 - point3) + ['D']*(len(plot_dates)-point4)
-
+    elif date3:
+        return ["r"]*(point1) + ["g"]*(point2 - point1) + ["b"]*(point3-point2) + ["black"]*(len(plot_dates)-point3), ['x']*(point1)+['o']*(point2 - point1) + ['*']*(point3 - point2) + ['+']*(len(plot_dates) - point3)
     elif date2:
-        return ["r"]*(point1) + ["g"]*(((point2)) - point1) + ["blue"]*(len(plot_dates)-point2),  ['x']*(point1)+['o']*(point2 - point1) + ['*']*(len(plot_dates) - point2)
+        return ["r"]*(point1) + ["g"]*(point2 - point1) + ["blue"]*(len(plot_dates)-point2),  ['x']*(point1)+['o']*(point2 - point1) + ['*']*(len(plot_dates) - point2)
 
     elif date1:
         return ["r"]*(point1) + ["g"]*(len(plot_dates) - point1),  ['x']*(point1)+['o']*(len(plot_dates) - point1)
@@ -170,18 +171,18 @@ def generate_plot(country=None, state=None, date1=None, date2=None, date3=None, 
 
 
     for i in range(len(colors)):
-        ax.scatter(daily_counts[i], daily_counts_people[i], color= colors[i], marker= markers[i], s=3)
+        ax.scatter(daily_counts[i], daily_counts_people[i], color= colors[i], marker= markers[i], s=5)
 
     if len(dates) != 0:
-        legend_elements = [Line2D([0], [0], marker='o', color='w', label='Scatter',
+        legend_elements = [Line2D([0], [0], marker='x', color='r', ls='',
                             markerfacecolor='r', markersize=9),
-                        Line2D([0], [0], marker='o', color='w', label='Scatter',
+                        Line2D([0], [0], marker='o', color='g', ls='',
                             markerfacecolor='g', markersize=9),
-                        Line2D([0], [0], marker='o', color='w', label='Scatter',
+                        Line2D([0], [0], marker='*', color='b', ls='',
                             markerfacecolor='b', markersize=9),
-                        Line2D([0], [0], marker='o', color='w', label='Scatter',
+                        Line2D([0], [0], marker='+', color='black', ls='',
                             markerfacecolor='black', markersize=9),
-                        Line2D([0], [0], marker='o', color='w', label='Scatter',
+                        Line2D([0], [0], marker='o', color='w', ls='',
                             markerfacecolor='darkorchid', markersize=9),
                         ]
 
