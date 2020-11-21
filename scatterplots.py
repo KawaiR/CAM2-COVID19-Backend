@@ -38,7 +38,7 @@ def color_list(plot_dates, date1=None, date2=None, date3=None, date4=None):
     else:
         return ["r"]*len(plot_dates), ['x']*len(plot_dates)
 
-@jit
+
 def generate_plot(country=None, state=None, date1=None, date2=None, date3=None, date4=None):
     # start
     print(country)
