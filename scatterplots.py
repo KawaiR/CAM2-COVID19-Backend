@@ -12,6 +12,8 @@ import argparse
 import mpld3
 import math
 import datetime
+import time
+from numba import njit, jit 
 
 def color_list(plot_dates, date1=None, date2=None, date3=None, date4=None):
     if (date1):
@@ -36,8 +38,12 @@ def color_list(plot_dates, date1=None, date2=None, date3=None, date4=None):
     else:
         return ["r"]*len(plot_dates), ['x']*len(plot_dates)
 
-
+@jit
 def generate_plot(country=None, state=None, date1=None, date2=None, date3=None, date4=None):
+    # start
+    print(country)
+    start_time = time.time()
+
     fig, ax = plt.subplots()
 
 
@@ -58,11 +64,20 @@ def generate_plot(country=None, state=None, date1=None, date2=None, date3=None, 
     """vehicle counts ----------------------------------------------------------
     """
 
+    # start reading csv
+    start_read_csv = time.time()
+    print("program start: " + str(start_read_csv - start_time))
+
     col = "vehicle_count"
     cars = "combined_csv_vehicles_4-1_8-1.csv"
     colap = pd.read_csv('processed_vehicles.csv')
     data = pd.read_csv(cars)
     data = data.fillna(0)
+
+    # some preprocessing
+    start_preprocessing = time.time()
+    print("read vehicle csv: " + str(start_preprocessing - start_read_csv))
+
     # select range of date
     data = data.loc[(data['date'] >= date1) & (data['date'] <= date2)]
 
@@ -100,6 +115,10 @@ def generate_plot(country=None, state=None, date1=None, date2=None, date3=None, 
         daily_counts[i] = np.max(np.sum(data_to_use[plot_cams], axis=1))
 
 
+    # end vehicle 
+    vehicle_processing_end = time.time()
+    print("vehicle preprocessing: " + str(vehicle_processing_end - start_preprocessing))
+
     """people counts -----------------------------------------------------------------
     """
 
@@ -108,6 +127,11 @@ def generate_plot(country=None, state=None, date1=None, date2=None, date3=None, 
     colap = pd.read_csv('processed_people.csv')
     data = pd.read_csv(people)
     data = data.fillna(0)
+
+    # people preprocessing
+    people_preprocessing = time.time()
+    print("read people csv: " + str(people_preprocessing-vehicle_processing_end))
+
     # select range of date
     data = data.loc[(data['date'] >= date1) & (data['date'] <= date2)]
 
@@ -148,6 +172,9 @@ def generate_plot(country=None, state=None, date1=None, date2=None, date3=None, 
 
     # colors, markers=color_list(plot_dates[1:-1], date1=date1, date2=date2, date3=date3, date4=date4)
 
+    # people preprocessing end
+    people_preprocessing_end = time.time()
+    print("people preprocessing: " + str(people_preprocessing_end - people_preprocessing))
 
     ax.set_xlabel('Vehicle count')
     ax.set_ylabel('People count')
@@ -224,12 +251,15 @@ def generate_plot(country=None, state=None, date1=None, date2=None, date3=None, 
     ax1.set(title="Time Series Histogram of People and Vehicle Count in " + place_to_use)
     fig1.set_size_inches(5, 5)
 
+    # plot end
+    print("generate plot: " + str(time.time() - people_preprocessing_end))
     return mpld3.fig_to_html(fig), mpld3.fig_to_html(fig1)
 
 
 
 
-
+if __name__ == '__main__':
+    generate_plot(country="Germany", date1="2020-04-01", date2="2020-07-31")
 
 
 
