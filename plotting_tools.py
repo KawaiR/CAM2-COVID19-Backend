@@ -13,7 +13,7 @@ import time
 from tqdm import tqdm
 from numba import njit, jit 
 
-@jit
+
 def get_count(df, mask, key):
 
     cols = {key: np.max}
@@ -50,7 +50,7 @@ def ungroup(df, values, col):
     dates = pd.DataFrame(dates, columns=['date_keys'])
     return df_masks, dates
 
-@jit
+
 def construct_new(data, dates, col="pedestrian_count"):
     frames = []
     for key in data.keys():
@@ -102,8 +102,11 @@ def load_csv(filen, col):
     print(f" num cams check: {len(flattened.columns)}")
     return data, keys, dates, flattened
 
-@jit
+
 def plot(frame, index_col="date_keys", plot_list=None, fill_na_value=None, height=20, aspect=21/20, kind='scatter', alpha=0.5):
+    #close all plots that could've been leaked
+    plt.close('all')
+
     '''
     quick plotting function to plot the data frame as a line or scatter plot if data needs to plotted the same way as example
 
@@ -148,7 +151,7 @@ def plot(frame, index_col="date_keys", plot_list=None, fill_na_value=None, heigh
     g.set_titles("cams vs dates")
     return g
 
-@jit
+
 def get_plot_cams_list(people_df, city=None, country=None, state=None):
     if country:
         return list(set(people_df.loc[people_df['country'] == country, 'cam_id']))
@@ -157,11 +160,11 @@ def get_plot_cams_list(people_df, city=None, country=None, state=None):
     elif state:
         return list(set(people_df.loc[people_df['state'] == state, 'cam_id']))
 
-@jit
+
 def get_max_of_subset(colap, list_cams):
     return list(colap.max(colap[list_cams]))
 
-@jit
+
 def visualize(ax, place_to_use, short_form, useful_dates, colap_vehicle=None, colap_people=None, data_vehicles=None, data_people=None,  disclude_vehicles=None, disclude_people=None):
 
     if colap_vehicle is not None:
