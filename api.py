@@ -48,6 +48,9 @@ def timeline():
 # This function get the POST request and return the plot in format of html
 @app.route('/query', methods = ['POST'])
 def query():
+  # close all open figures to avoid memory leaks and server crashes
+  plt.close('all')
+
   # Get data from ajax request
   data = json.loads(request.data)
   scatter, hist = plot(data["country"], data["state"], data["start"], data["end"])
