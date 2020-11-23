@@ -39,12 +39,15 @@ def color_list(plot_dates, date1=None, date2=None, date3=None, date4=None):
         return ["r"]*len(plot_dates), ['x']*len(plot_dates)
 
 
-def generate_plot(country=None, state=None, date1=None, date2=None, date3=None, date4=None):
+def generate_plot(country=None, state=None, date1=None, date2=None, mobile=False):
     # start
     print(country)
     start_time = time.time()
 
-    fig, ax = plt.subplots()
+    if mobile:
+        fig, ax = plt.subplots(2, 1, figsize=(3, 8))
+    else:
+        fig, ax = plt.subplots(1, 2, figsize=(12, 5))
 
 
     countries = {}
@@ -168,7 +171,7 @@ def generate_plot(country=None, state=None, date1=None, date2=None, date3=None, 
         daily_counts_people[i] = np.max(np.sum(data_to_use[plot_cams], axis=1))
 
 
-    ax.set(title="Scatterplot of People Count vs Vehicle Count in " + place_to_use)
+    ax[0].set(title="Scatterplot of People Count vs Vehicle Count in " + place_to_use)
 
     # colors, markers=color_list(plot_dates[1:-1], date1=date1, date2=date2, date3=date3, date4=date4)
 
@@ -176,8 +179,8 @@ def generate_plot(country=None, state=None, date1=None, date2=None, date3=None, 
     people_preprocessing_end = time.time()
     print("people preprocessing: " + str(people_preprocessing_end - people_preprocessing))
 
-    ax.set_xlabel('Vehicle count')
-    ax.set_ylabel('People count')
+    ax[0].set_xlabel('Vehicle count')
+    ax[0].set_ylabel('People count')
 
 
     # Add legends
@@ -198,7 +201,7 @@ def generate_plot(country=None, state=None, date1=None, date2=None, date3=None, 
 
 
     for i in range(len(colors)):
-        ax.scatter(daily_counts[i], daily_counts_people[i], color= colors[i], marker= markers[i], s=5)
+        ax[0].scatter(daily_counts[i], daily_counts_people[i], color= colors[i], marker= markers[i], s=5)
 
     if len(dates) != 0:
         legend_elements = [Line2D([0], [0], marker='x', color='r', ls='',
@@ -223,19 +226,19 @@ def generate_plot(country=None, state=None, date1=None, date2=None, date3=None, 
 
         legend+=[str(prevdate + '-- ' + date2.replace("2020-", ""))]
 
-        ax.legend(legend_elements, legend)
+        plt.legend(legend_elements, legend)
 
-    fig.set_size_inches(5, 5)
 
+    # code for barplot
     bins = math.floor(len(daily_counts)/7)
     vehicle_by_week = [sum(daily_counts[i:i+7]) for i in range(bins)]
     people_by_week = [sum(daily_counts_people[i:i+7]) for i in range(bins)]
-    fig1, ax1 = plt.subplots()
+    # fig1, ax1 = plt.subplots()
 
     bar_width = 0.35
-    ax1.bar(np.arange(bins), vehicle_by_week, bar_width, align='center', alpha=0.5, color='b', label='vehicle')
+    ax[1].bar(np.arange(bins), vehicle_by_week, bar_width, align='center', alpha=0.5, color='b', label='vehicle')
         
-    ax1.bar(np.arange(bins) + bar_width, people_by_week, bar_width, align='center', alpha=0.5, color='g', label='people')
+    ax[1].bar(np.arange(bins) + bar_width, people_by_week, bar_width, align='center', alpha=0.5, color='g', label='people')
 
     """
     ticks = []
@@ -248,12 +251,13 @@ def generate_plot(country=None, state=None, date1=None, date2=None, date3=None, 
     plt.ylabel('Counts')
     plt.xlabel('Week')
     plt.legend(loc='upper left')
-    ax1.set(title="Time Series Histogram of People and Vehicle Count in " + place_to_use)
-    fig1.set_size_inches(5, 5)
+    ax[1].set(title="Time Series of People and Vehicle Count in " + place_to_use)
+
+    #fig.set_size_inches(4, 4)
 
     # plot end
     print("generate plot: " + str(time.time() - people_preprocessing_end))
-    return mpld3.fig_to_html(fig), mpld3.fig_to_html(fig1)
+    return mpld3.fig_to_html(fig)
 
 
 

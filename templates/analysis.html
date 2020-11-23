@@ -171,12 +171,7 @@
                         </div>
                     </div>
                   <!--Container for the plot-->
-                  
-                  <div class="container" style="max-width: 800px;">
-                    <div class="container" id="container" style="width:300px; float:left;"></div>
-                    <div class="container" id="container2" style="width:300px; float:right;"></div>
-                </div>
-                <div style="clear: both;"></div>
+                  <div id="container"></div>
 
                 </p>
 
@@ -226,15 +221,13 @@
                 contentType: "application/json; charset=utf-8",
                 url: "/query",
                 data: JSON.stringify(qu),
-                dataType: "json",
+                dataType: "html",
                 /* function if the request succeeds */
                 success: function (data) {   
-                $("#container").html(data.scatter);   
+                $("#container").html(data);   
                 $("#loading-div-background").hide(); 
                 $("#container").show();
 
-                $("#container2").html(data.hist);    
-                $("#container2").show();
                 },
                 /* function if the request fails */
                 error: function (e) {

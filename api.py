@@ -13,11 +13,11 @@ from datetime import date
 
 
 # This function generates the plot
-def plot(country, state, start, end):
+def plot(country, state, start, end, mobile):
   if country == "United States":
-    return scatterplots.generate_plot(state=state, date1=start, date2=end)
+    return scatterplots.generate_plot(state=state, date1=start, date2=end, mobile=mobile)
   else:
-    return scatterplots.generate_plot(country=country, date1=start, date2=end)
+    return scatterplots.generate_plot(country=country, date1=start, date2=end, mobile=mobile)
 
 
 app = flask.Flask(__name__)
@@ -53,12 +53,12 @@ def query():
 
   # Get data from ajax request
   data = json.loads(request.data)
-  scatter, hist = plot(data["country"], data["state"], data["start"], data["end"])
-  data = {}
-  data['scatter'] = scatter
-  data['hist'] = hist
-  json_data = json.dumps(data)
-  return json_data
+  agent = request.headers.get('User-Agent')
+  print(agent)
+  mobile = False
+  if "mobile" in agent.lower():
+    mobile = True
+  return plot(data["country"], data["state"], data["start"], data["end"], mobile)
 
 
 if __name__ == '__main__':
