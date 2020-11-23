@@ -45,7 +45,7 @@ def generate_plot(country=None, state=None, date1=None, date2=None, mobile=False
     start_time = time.time()
 
     if mobile:
-        fig, ax = plt.subplots(2, 1, figsize=(3, 8))
+        fig, ax = plt.subplots(2, 1, figsize=(4, 8.5))
     else:
         fig, ax = plt.subplots(1, 2, figsize=(12, 5))
 
@@ -226,7 +226,7 @@ def generate_plot(country=None, state=None, date1=None, date2=None, mobile=False
 
         legend+=[str(prevdate + '-- ' + date2.replace("2020-", ""))]
 
-        plt.legend(legend_elements, legend)
+        ax[0].legend(legend_elements, legend)
 
 
     # code for barplot
@@ -263,7 +263,10 @@ def generate_plot(country=None, state=None, date1=None, date2=None, mobile=False
 
 
 if __name__ == '__main__':
-    generate_plot(country="Germany", date1="2020-04-01", date2="2020-07-31")
+    plot = generate_plot(country="CZ", date1="2020-06-10", date2="2020-07-02")
+    f = open("example.html", "w")
+    f.write(plot)
+    f.close()
 
 
 
