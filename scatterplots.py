@@ -14,6 +14,7 @@ import math
 import datetime
 import time
 from numba import njit, jit 
+import json
 
 def color_list(plot_dates, date1=None, date2=None, date3=None, date4=None):
     if (date1):
@@ -72,17 +73,12 @@ def generate_plot(country=None, state=None, date1=None, date2=None, mobile=False
     print("program start: " + str(start_read_csv - start_time))
 
     col = "vehicle_count"
-    cars = "combined_csv_vehicles_4-1_8-1.csv"
     colap = pd.read_csv('processed_vehicles.csv')
-    data = pd.read_csv(cars)
-    data = data.fillna(0)
 
     # some preprocessing
     start_preprocessing = time.time()
     print("read vehicle csv: " + str(start_preprocessing - start_read_csv))
 
-    # select range of date
-    data = data.loc[(data['date'] >= date1) & (data['date'] <= date2)]
 
     # remove the data of March 31
     useful_data = colap[1:]
@@ -104,14 +100,10 @@ def generate_plot(country=None, state=None, date1=None, date2=None, mobile=False
         plot_dates.append(np.array(useful_data[start_samples[i]:start_samples[i]+1]["date_keys"])[0])
 
 
-
     daily_counts = np.zeros((data_points))
 
-    if country:
-        plot_cams = get_plot_cams_list(data, country=short_form)
-    elif state:
-        plot_cams = get_plot_cams_list(data, state=short_form)
-
+    cams = json.load(open("car_cams.json"))
+    plot_cams = cams[short_form]
 
     for i in range(data_points): 
         data_to_use = useful_data[start_samples[i]:end_samples[i]][plot_cams] 
@@ -126,17 +118,12 @@ def generate_plot(country=None, state=None, date1=None, date2=None, mobile=False
     """
 
     col = "pedestrian_count"
-    people = "combined_csv_pedestrians_4-1_8-1.csv"
     colap = pd.read_csv('processed_people.csv')
-    data = pd.read_csv(people)
-    data = data.fillna(0)
 
     # people preprocessing
     people_preprocessing = time.time()
     print("read people csv: " + str(people_preprocessing-vehicle_processing_end))
 
-    # select range of date
-    data = data.loc[(data['date'] >= date1) & (data['date'] <= date2)]
 
     # remove the data of March 31
     useful_data = colap[1:]
@@ -161,10 +148,8 @@ def generate_plot(country=None, state=None, date1=None, date2=None, mobile=False
 
     daily_counts_people = np.zeros((data_points))
 
-    if country:
-        plot_cams = get_plot_cams_list(data, country=short_form)
-    elif state:
-        plot_cams = get_plot_cams_list(data, state=short_form)
+    cams = json.load(open("people_cams.json"))
+    plot_cams = cams[short_form]
 
     for i in range(data_points): 
         data_to_use = useful_data[start_samples[i]:end_samples[i]][plot_cams] 
@@ -263,10 +248,7 @@ def generate_plot(country=None, state=None, date1=None, date2=None, mobile=False
 
 
 if __name__ == '__main__':
-    plot = generate_plot(country="CZ", date1="2020-06-10", date2="2020-07-02")
-    f = open("example.html", "w")
-    f.write(plot)
-    f.close()
+    plot = generate_plot(country="Germany", date1="2020-06-10", date2="2020-07-02")
 
 
 
