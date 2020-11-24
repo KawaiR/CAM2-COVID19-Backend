@@ -56,8 +56,6 @@
                 <h3 class="mb-0" style="font-family: 'Exo 2', sans-serif; color: #1B1B1B; font-weight: 400;">Vehicle and People Counts</h3>
                 <br>
                 <p class="text-black-50 mb-5" style="margin-top: -10px;">In the past summer, our research team collected and analyzed data from over 10,000 worldwide cameras. We use number of vehicles and crowd sizes as indication of whether people are following social distancing guidelines. Specifically, we focused on 9,752 cameras to analyze traffic and 3,254 cameras to count people. Below are the plots we have for people and vehicle counts. </p>
-                <p class="text-black-50 mb-5" style="margin-top: -10px;"> Example plots: </p>
-                <img src="{{url_for('static', filename='img/example_plot.png')}}" style="width:auto; max-width:100%; height:auto;">
                 <p></p>
                 <p class="text-black-50 mb-5" style="margin-top: -10px;">The scatter plots are designed to show the correlation between vehicle and people counts from select countries on a monthly basis starting from April 2020. Different colors and markers represent different date ranges indicated in the legend of each plot to reflect the different months following the outbreak of the pandemic. You are welcome to use the feature below to plot subsets of the data we collected and explore the trends shown. Next to the scatter plot, you will find a double bar histogram presenting the vehicle and people maximums. </p>
                 
@@ -147,6 +145,7 @@
                         <option value="WY">Wyoming</option>
                     </select>
                     </div>
+                    <div>
                     <label for="start">Start Date:</label>
                     <input type="date" id="start" name="start" value="2020-04-01" min={{ min_date }} max={{ max_date }}>
                     <label for="end">End Date:</label>
@@ -165,14 +164,14 @@
                         left: 50%;
                         cursor: pointer;">View Plot</button>
                     <!--Display when loading the plot-->
+                    <br>
+                    <br>
                     <div id="loading-div-background">
-                        <div id="loading-div" class="ui-corner-all" >
-                        <h3 style="color:gray;font-weight:normal;">Loading plot.... May take 30 seconds</h3>
-                        </div>
+                        <p>Example Plot: </p>
                     </div>
                   <!--Container for the plot-->
                   <div id="container">
-                    <link rel="import" href="templates\example.html">
+                    <img src="{{url_for('static', filename='img/example_plot.png')}}" style="width:auto; max-width:100%; height:auto;">
                   </div>
 
                 </p>
@@ -201,11 +200,10 @@
             $( "#amount2" ).val($( "#slider-range" ).slider( "values", 1 ));
             });
 
-            
-            $("#loading-div-background").css({ opacity: 0.7 });
-              
+                          
             /* Customize button "View Plot" */
             $("#query").on('click', function() {  
+                $("#loading-div-background").html("Loading plot.... May take 30 seconds");
                 $("#loading-div-background").show();
                 $("#container").hide();
                 $("#container2").hide();
